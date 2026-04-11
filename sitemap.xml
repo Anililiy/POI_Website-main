@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://poi.org.uk/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://poi.org.uk/about.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://poi.org.uk/sessions.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://poi.org.uk/volunteering.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://poi.org.uk/contact.html</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
