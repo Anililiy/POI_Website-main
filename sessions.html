@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sessions – POI | Power of Interest</title>
+  <meta name="description" content="Sign up for POI debate sessions — online skills workshops, weekly in-person debates, and competitive events." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.jpg" type="image/jpeg" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="header-brand">
+      <img src="logo.jpg" alt="POI Logo" />
+      <div class="header-brand-text">
+        <span class="brand-title">POI</span>
+        <span class="brand-sub">Power of Interest</span>
+      </div>
+    </a>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="sessions.html" class="active">Sessions</a>
+      <a href="contact.html">Contact</a>
+      <a href="volunteering.html">Volunteering</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="sessions.html" class="active">Sessions</a>
+    <a href="contact.html">Contact</a>
+    <a href="volunteering.html">Volunteering</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('background_library.jpg');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <h1>Sessions</h1>
+    <p>Three ways to learn, practise and compete — there's a path for every level.</p>
+  </div>
+</section>
+
+<!-- SESSIONS CONTENT -->
+<section class="section">
+  <div class="container">
+
+    <!-- ===== SESSION A: Online Skills Workshop ===== -->
+    <div class="session-card">
+      <div class="session-card-header">
+        <span class="card-tag" style="background:rgba(245,237,215,0.15); color:var(--cyan-light);">Session A</span>
+        <h3>Online Skills Workshops</h3>
+        <p>Learn the skills needed to begin debating. In the format of 45-minute online webinars, this is the perfect way to start and build up your skill set ready for the in-person debates.</p>
+      </div>
+      <div class="session-card-body">
+        <div class="session-meta">
+          <div class="session-meta-item">
+            <span class="label">Time</span>
+            <span class="value">TBC</span>
+          </div>
+          <div class="session-meta-item">
+            <span class="label">Date</span>
+            <span class="value">TBC</span>
+          </div>
+          <div class="session-meta-item">
+            <span class="label">Price</span>
+            <span class="value">TBC</span>
+          </div>
+          <div class="session-meta-item">
+            <span class="label">Format</span>
+            <span class="value">Online</span>
+          </div>
+        </div>
+
+        <div class="form-wrapper">
+          <div class="form-title">Sign Up — Online Skills Workshops</div>
+          <p class="required-note">All fields are compulsory &nbsp;&mdash;&nbsp; <em>Your data will not be retained after the event (Data Protection Act 2018).</em></p>
+          <form id="form-online" action="mailto:poi.alison.zh@gmail.com,poi.maria.fa@gmail.com" method="POST" enctype="text/plain" onsubmit="return handleFormSubmit(event, 'Online Skills Workshop')">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="online-name">Full Name</label>
+                <input type="text" id="online-name" name="Name" required placeholder="Your full name" />
+              </div>
+              <div class="form-group">
+                <label for="online-email">Email Address</label>
+                <input type="email" id="online-email" name="Email" required placeholder="you@example.com" />
+              </div>
+              <div class="form-group">
+                <label for="online-school">School Name</label>
+                <input type="text" id="online-school" name="School Name" required placeholder="Your school's full name" />
+              </div>
+              <div class="form-group">
+                <label for="online-school-type">Type of School</label>
+                <select id="online-school-type" name="Type of School" required>
+                  <option value="" disabled selected>Select school type</option>
+                  <option value="Independent">Independent</option>
+                  <option value="State Selective">State Selective</option>
+                  <option value="State">State</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="online-parent-name">Parent / Guardian Name</label>
+                <input type="text" id="online-parent-name" name="Parent Name" required placeholder="Parent or guardian's full name" />
+              </div>
+              <div class="form-group">
+                <label for="online-parent-email">Parent / Guardian Email</label>
+                <input type="email" id="online-parent-email" name="Parent Email" required placeholder="parent@example.com" />
+              </div>
+            </div>
+            <div style="margin-top:1.25rem;">
+              <button type="submit" class="btn btn-primary">Submit Sign-Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SESSION B: In-Person Debate ===== -->
+    <div class="session-card">
+      <div class="session-card-header">
+        <span class="card-tag" style="background:rgba(245,237,215,0.15); color:var(--cyan-light);">Session B</span>
+        <h3>In-Person Debates</h3>
+        <p>Turn knowledge into skill through weekly practice in a supportive learning environment. Sessions include friendly debates judged by experienced debaters who are there to help.</p>
+      </div>
+      <div class="session-card-body">
+        <div class="session-meta">
+          <div class="session-meta-item">
+            <span class="label">Time</span>
+            <span class="value">TBC</span>
+          </div>
+          <div class="session-meta-item">
+            <span class="label">Date</span>
+            <span class="value">TBC</span>
+          </div>
+          <div class="session-meta-item">
+            <span class="label">Price</span>
+            <span class="value">TBC</span>
+          </div>
+          <div class="session-meta-item">
+            <span class="label">Format</span>
+            <span class="value">In-Person</span>
+          </div>
+          <div class="session-meta-item">
+            <span class="label">Location</span>
+            <span class="value">Oxford (TBC)</span>
+          </div>
+        </div>
+
+        <div class="form-wrapper">
+          <div class="form-title">Sign Up — In-Person Debates</div>
+          <p class="required-note">All fields are compulsory &nbsp;&mdash;&nbsp; <em>Your data will not be retained after the event (Data Protection Act 2018).</em></p>
+          <form id="form-inperson" action="mailto:poi.alison.zh@gmail.com,poi.maria.fa@gmail.com" method="POST" enctype="text/plain" onsubmit="return handleFormSubmit(event, 'In-Person Debate')">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="ip-name">Full Name</label>
+                <input type="text" id="ip-name" name="Name" required placeholder="Your full name" />
+              </div>
+              <div class="form-group">
+                <label for="ip-email">Email Address</label>
+                <input type="email" id="ip-email" name="Email" required placeholder="you@example.com" />
+              </div>
+              <div class="form-group">
+                <label for="ip-school">School Name</label>
+                <input type="text" id="ip-school" name="School Name" required placeholder="Your school's full name" />
+              </div>
+              <div class="form-group">
+                <label for="ip-school-type">Type of School</label>
+                <select id="ip-school-type" name="Type of School" required>
+                  <option value="" disabled selected>Select school type</option>
+                  <option value="Independent">Independent</option>
+                  <option value="State Selective">State Selective</option>
+                  <option value="State">State</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ip-parent-name">Parent / Guardian Name</label>
+                <input type="text" id="ip-parent-name" name="Parent Name" required placeholder="Parent or guardian's full name" />
+              </div>
+              <div class="form-group">
+                <label for="ip-parent-email">Parent / Guardian Email</label>
+                <input type="email" id="ip-parent-email" name="Parent Email" required placeholder="parent@example.com" />
+              </div>
+            </div>
+            <div style="margin-top:1.25rem;">
+              <button type="submit" class="btn btn-primary">Submit Sign-Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SESSION C: Competitions ===== -->
+    <div class="session-card">
+      <div class="session-card-header">
+        <span class="card-tag" style="background:rgba(245,237,215,0.15); color:var(--cyan-light);">Session C</span>
+        <h3>Competitions</h3>
+        <p>The perfect chance to put your skills into practice in a competitive environment — and possibly win a prize!</p>
+      </div>
+      <div class="session-card-body" style="text-align:center; padding:3rem 2rem;">
+        <div style="margin-bottom:1rem; display:flex; justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="56" height="56"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        </div>
+        <h3 class="text-navy" style="margin-bottom:0.75rem;">Coming Soon</h3>
+        <p style="max-width:480px; margin:0 auto 1.5rem;">Competition details are being finalised. Sign up to our mailing list via the contact form to be the first to know when registrations open.</p>
+        <a href="contact.html" class="btn btn-primary">Get Notified</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-row">
+      <img src="logo.jpg" alt="POI Logo" />
+      <span class="footer-brand-name">POI &ndash; Power of Interest</span>
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <span class="footer-sep" aria-hidden="true">&bull;</span>
+      <a href="about.html">About</a>
+      <span class="footer-sep" aria-hidden="true">&bull;</span>
+      <a href="sessions.html">Sessions</a>
+      <span class="footer-sep" aria-hidden="true">&bull;</span>
+      <a href="contact.html">Contact</a>
+      <span class="footer-sep" aria-hidden="true">&bull;</span>
+      <a href="volunteering.html">Volunteering</a>
+    </nav>
+    <div class="footer-legal">
+      <a href="#" id="footer-company-policy-btn">Company Policies</a>
+      <span class="footer-sep" aria-hidden="true">&bull;</span>
+      <a href="#" id="footer-data-policy-btn">Data Safety Policy</a>
+    </div>
+    <p class="footer-copyright">&copy; 2026 POI &ndash; Power of Interest. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- POLICY MODALS -->
+<div class="policy-modal-overlay" id="company-policy-modal">
+  <div class="policy-modal">
+    <button class="policy-close" aria-label="Close">&times;</button>
+    <h2>Company Policies</h2>
+    <h3>1. Equal Opportunities</h3><p>POI is committed to equal opportunities for all participants regardless of background.</p>
+    <h3>2. Safeguarding</h3><p>Welfare of participants is our highest priority. Contact: <a href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a>.</p>
+    <h3>3. Code of Conduct</h3><p>Respectful behaviour is required at all times. Harassment results in removal.</p>
+    <h3>4. Complaints</h3><p>Submit complaints to <a href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a>. Acknowledged within 5 working days.</p>
+  </div>
+</div>
+
+<div class="policy-modal-overlay" id="data-policy-modal">
+  <div class="policy-modal">
+    <button class="policy-close" aria-label="Close">&times;</button>
+    <h2>Data Safety Policy</h2>
+    <p style="color:var(--grey); font-size:0.85rem; margin-bottom:1rem;">UK Data Protection Act 2018 &amp; UK GDPR compliant.</p>
+    <h3>Data Retention (TTL)</h3>
+    <p><strong>Data is not retained after the event.</strong> Deleted within 30 days of each session.</p>
+    <h3>Your Rights</h3>
+    <p>Contact <a href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a> to access, correct or delete your data.</p>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
