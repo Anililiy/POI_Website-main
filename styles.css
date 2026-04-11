@@ -186,12 +186,8 @@ p  { font-size: 1rem; color: var(--grey); }
 .hero h1 { color: var(--cream); margin-bottom: 0.75rem; }
 .hero-tagline { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--cyan-light); max-width: 600px; margin-bottom: 2rem; }
 
-/* ====================================================
-   CARDS GRID
-   ==================================================== */
 .cards-grid { display: grid; grid-template-columns: 1fr; gap: 1.8rem; }
-@media (min-width: 550px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .cards-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 650px) { .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
 .card {
   background: var(--white);
   border-radius: var(--radius);
