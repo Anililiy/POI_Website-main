@@ -206,23 +206,7 @@ p  { font-size: 1rem; color: var(--grey); }
 .card-body p  { flex: 1; margin-bottom: 0.85rem; font-size: 0.88rem; line-height: 1.6; color: var(--text-dark); }
 .card-tag { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(45,196,228,0.15); color: var(--cyan); border-radius: 50px; padding: 0.25rem 0.6rem; margin-bottom: 0.6rem; align-self: flex-start; }
 
-.ai-label {
-  position: absolute;
-  bottom: 6px;
-  right: 6px;
-  background: rgba(0, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.55rem;
-  padding: 0.15rem 0.35rem;
-  border-radius: 3px;
-  z-index: 10;
-  pointer-events: none;
-}
-.ai-label-hero {
-  bottom: 12px;
-  right: 12px;
-  font-size: 0.6rem;
-}/* ====================================================
+/* ====================================================
    SECTION HEADER
    ==================================================== */
 .section-header { text-align: center; margin-bottom: 3rem; }
