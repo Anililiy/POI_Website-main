@@ -1,254 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>POI – Power of Interest | Home</title>
-  <meta name="description" content="Power of Interest (POI) – building confident speakers through the power of debate. A student-run organisation hosting online webinars and in-person debate sessions." />
+  <meta name="description"
+    content="Power of Interest (POI) – building confident speakers through the power of debate. A student-run organisation hosting online webinars and in-person debate sessions." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="logo.jpg" type="image/jpeg" />
 </head>
+
 <body>
 
-<!-- ===== HEADER ===== -->
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="header-brand">
-      <img src="logo.jpg" alt="POI Logo" />
-      <div class="header-brand-text">
-        <span class="brand-title">POI</span>
-        <span class="brand-sub">Power of Interest</span>
-      </div>
-    </a>
-    <nav class="nav" role="navigation" aria-label="Main navigation">
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-brand">
+        <img src="logo.jpg" alt="POI Logo" />
+        <div class="header-brand-text">
+          <span class="brand-title">POI</span>
+          <span class="brand-sub">Power of Interest</span>
+        </div>
+      </a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="sessions.html">Sessions</a>
+        <a href="volunteering.html">Volunteering</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="sessions.html">Sessions</a>
-      <a href="contact.html">Contact</a>
       <a href="volunteering.html">Volunteering</a>
-    </nav>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="sessions.html">Sessions</a>
-    <a href="contact.html">Contact</a>
-    <a href="volunteering.html">Volunteering</a>
-  </nav>
-</header>
-
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero-bg" style="background-image: url('background_chamber.jpg');"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <img src="logo.jpg" alt="POI Logo" class="hero-logo" />
-    <h1>POI &ndash; Power of Interest</h1>
-    <p class="hero-tagline">Building confident speakers through the power of interest</p>
-    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-      <a href="sessions.html" class="btn btn-primary">Join a Session</a>
-      <a href="about.html" class="btn btn-outline text-cream" style="border-color:var(--cream); color:var(--cream);">Learn More</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== OVERVIEW CARDS ===== -->
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="text-navy">What We Offer</h2>
-      <div class="divider"></div>
-      <p>Explore everything POI has to offer — from developing your skills to competing on the debate stage.</p>
-    </div>
-    <div class="cards-grid">
-
-      <!-- About Card -->
-      <a href="about.html" class="card" style="text-decoration:none;">
-        <img src="background_study.jpg" alt="About POI" class="card-img" />
-        <div class="card-body">
-          <span class="card-tag">Who We Are</span>
-          <h3>About POI</h3>
-          <p>A student-run organisation changing lives through debate. Learn about our mission, our founders, and our journey toward charity registration.</p>
-          <span class="btn btn-primary" style="align-self:flex-start;">Meet Us &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Sessions Card -->
-      <a href="sessions.html" class="card" style="text-decoration:none;">
-        <img src="background_library.jpg" alt="Sessions" class="card-img" />
-        <div class="card-body">
-          <span class="card-tag">Learn &amp; Compete</span>
-          <h3>Sessions</h3>
-          <p>Online skills workshops, in-person weekly debates and competitive events — there's a path for every level.</p>
-          <span class="btn btn-primary" style="align-self:flex-start;">Sign Up &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Contact Card -->
-      <a href="contact.html" class="card" style="text-decoration:none;">
-        <img src="background_room.jpg" alt="Contact" class="card-img" />
-        <div class="card-body">
-          <span class="card-tag">Get In Touch</span>
-          <h3>Contact Us</h3>
-          <p>Have a question, want to partner with us, or just want to say hello? We'd love to hear from you.</p>
-          <span class="btn btn-primary" style="align-self:flex-start;">Contact &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Volunteering Card -->
-      <a href="volunteering.html" class="card" style="text-decoration:none;">
-        <img src="background_chamber.jpg" alt="Volunteering" class="card-img" />
-        <div class="card-body">
-          <span class="card-tag">Give Back</span>
-          <h3>Volunteering</h3>
-          <p>Help us change lives — whether as a trustee, judge, speaker or general volunteer. All roles welcome.</p>
-          <span class="btn btn-primary" style="align-self:flex-start;">Get Involved &rarr;</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== MISSION BANNER ===== -->
-<section class="section section--dark">
-  <div class="container text-center">
-    <h2 class="text-cream">Our Mission</h2>
-    <div class="divider"></div>
-    <p style="max-width:640px; margin:0 auto 2rem; font-size:1.1rem; color:var(--cyan-light);">
-      To give back to our community by changing lives through debate — ensuring that everybody has equal access to the skills, confidence and opportunities that debate provides.
-    </p>
-    <a href="about.html" class="btn btn-cream">Read Our Story</a>
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section class="section section--grey">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="text-navy">Frequently Asked Questions</h2>
-      <div class="divider"></div>
-      <p>Everything you need to know about joining POI.</p>
-    </div>
-    <div style="max-width:720px; margin:0 auto;">
-
-      <div class="faq-item">
-        <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
-          What age group is POI for?
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="faq-answer">
-          <p>POI welcomes students from <strong>Year 7 to Year 13</strong>. Whether you're just starting secondary school or preparing for sixth form, there's a place for you here.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
-          Do I need any previous debate experience?
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="faq-answer">
-          <p><strong>No experience needed at all</strong> — that's exactly why POI exists! Our online skills workshops are designed to take you from complete beginner to confident debater, step by step.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
-          How are sessions run?
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="faq-answer">
-          <p>We run sessions both <strong>online and in person</strong>. In-person sessions are held in <strong>Oxford</strong>. Online sessions are held over <strong>Google Meet</strong> — once you sign up, a link will be sent out to you ahead of the session.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
-          How many people does the programme support?
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="faq-answer">
-          <p>We're still working this out as we grow! Online sessions will likely have <strong>no fixed cap</strong>, while in-person sessions accommodate up to <strong>32 participants</strong>. If demand is high, we'll look at running additional cohorts.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand-row">
-      <img src="logo.jpg" alt="POI Logo" />
-      <span class="footer-brand-name">POI &ndash; Power of Interest</span>
-    </div>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="index.html">Home</a>
-      <span class="footer-sep" aria-hidden="true">&bull;</span>
-      <a href="about.html">About</a>
-      <span class="footer-sep" aria-hidden="true">&bull;</span>
-      <a href="sessions.html">Sessions</a>
-      <span class="footer-sep" aria-hidden="true">&bull;</span>
       <a href="contact.html">Contact</a>
-      <span class="footer-sep" aria-hidden="true">&bull;</span>
-      <a href="volunteering.html">Volunteering</a>
     </nav>
-    <div class="footer-legal">
-      <a href="#" id="footer-company-policy-btn">Company Policies</a>
-      <span class="footer-sep" aria-hidden="true">&bull;</span>
-      <a href="#" id="footer-data-policy-btn">Data Safety Policy</a>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image: url('background_chamber.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="logo.jpg" alt="POI Logo" class="hero-logo" />
+      <h1>POI &ndash; Power of Interest</h1>
+      <p class="hero-tagline">Building confident speakers through the power of interest</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="sessions.html" class="btn btn-primary">Join a Session</a>
+        <a href="about.html" class="btn btn-outline text-cream"
+          style="border-color:var(--cream); color:var(--cream);">Learn More</a>
+      </div>
     </div>
-    <p class="footer-copyright">&copy; 2026 POI &ndash; Power of Interest. All rights reserved.</p>
-  </div>
-</footer>
+  </section>
 
-<!-- ===== POLICY MODALS ===== -->
-<div class="policy-modal-overlay" id="company-policy-modal">
-  <div class="policy-modal">
-    <button class="policy-close" aria-label="Close">&times;</button>
-    <h2>Company Policies</h2>
-    <p style="color:var(--grey); font-size:0.85rem; margin-bottom:1.5rem;">Last updated: April 2026 &mdash; POI (Power of Interest), in the process of charity registration.</p>
-    <h3>1. Equal Opportunities</h3>
-    <p>POI is committed to providing equal opportunities to all participants regardless of background, school type, ethnicity, gender, religion, disability or socioeconomic status. Discrimination of any kind will not be tolerated.</p>
-    <h3>2. Safeguarding</h3>
-    <p>The welfare of all participants, particularly those under 18, is our highest priority. POI operates in accordance with national safeguarding guidelines. A designated Safeguarding Trustee oversees all safeguarding matters. Any concerns should be reported to <a href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a>.</p>
-    <h3>3. Code of Conduct</h3>
-    <p>Participants, volunteers and trustees are expected to conduct themselves respectfully and professionally at all times, both in person and online. Harassment, bullying or inappropriate behaviour will result in removal from sessions.</p>
-    <h3>4. Financial Governance</h3>
-    <p>All funds collected by POI are used exclusively to operate and grow our debate programme. Financial records are maintained transparently and will be subject to charity commission reporting upon successful registration.</p>
-    <h3>5. Complaints Procedure</h3>
-    <p>Any complaints regarding POI activities, staff or volunteers should be submitted in writing to <a href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a>. All complaints will be acknowledged within 5 working days.</p>
-  </div>
-</div>
+  <!-- ===== OVERVIEW CARDS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="text-navy">What We Offer</h2>
+        <div class="divider"></div>
+        <p>Explore everything POI has to offer — from developing your skills to competing on the debate stage.</p>
+      </div>
+      <div class="cards-grid">
 
-<div class="policy-modal-overlay" id="data-policy-modal">
-  <div class="policy-modal">
-    <button class="policy-close" aria-label="Close">&times;</button>
-    <h2>Data Safety Policy</h2>
-    <p style="color:var(--grey); font-size:0.85rem; margin-bottom:1.5rem;">Last updated: April 2026 &mdash; In compliance with the UK Data Protection Act 2018 and UK GDPR.</p>
-    <h3>What Data We Collect</h3>
-    <p>When you sign up for a session or contact us, we collect: your name, email address, school name and type, and your parent/guardian's name and email address (for participants under 18).</p>
-    <h3>How We Use Your Data</h3>
-    <ul style="margin:0.5rem 0 0.75rem 1.25rem; list-style:disc;">
-      <li>To confirm session registrations and send event information</li>
-      <li>To contact participants and guardians regarding sessions</li>
-      <li>To manage safeguarding obligations</li>
-    </ul>
-    <h3>Data Retention (TTL)</h3>
-    <p><strong>Data is not retained after the event for which it was collected.</strong> All personal information submitted for a session is deleted within 30 days of that session taking place. Contact form submissions are retained only for as long as necessary to respond to your enquiry, and no longer than 90 days.</p>
-    <h3>Your Rights</h3>
-    <p>Under the UK Data Protection Act 2018, you have the right to access, correct or request deletion of your personal data at any time. Contact us at <a href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a> to exercise these rights.</p>
-    <h3>Data Security</h3>
-    <p>Your data is stored securely and is only accessible to authorised POI trustees. We do not sell or share your data with third parties.</p>
-    <h3>Contact</h3>
-    <p>For data protection enquiries: <a href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a></p>
-  </div>
-</div>
+        <!-- About Card -->
+        <a href="about.html" class="card" style="text-decoration:none;">
+          <img src="background_study.jpg" alt="About POI" class="card-img" />
+          <div class="card-body">
+            <span class="card-tag">Who We Are</span>
+            <h3>About POI</h3>
+            <p>A student-run organisation changing lives through debate. Learn about our mission, our founders, and our
+              journey toward charity registration.</p>
+            <span class="btn btn-primary" style="align-self:flex-start;">Meet Us &rarr;</span>
+          </div>
+        </a>
 
-<script src="main.js"></script>
+        <!-- Sessions Card -->
+        <a href="sessions.html" class="card" style="text-decoration:none;">
+          <img src="background_library.jpg" alt="Sessions" class="card-img" />
+          <div class="card-body">
+            <span class="card-tag">Learn &amp; Compete</span>
+            <h3>Sessions</h3>
+            <p>Online skills workshops, in-person weekly debates and competitive events — there's a path for every
+              level.</p>
+            <span class="btn btn-primary" style="align-self:flex-start;">Sign Up &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Contact Card -->
+        <a href="contact.html" class="card" style="text-decoration:none;">
+          <img src="background_room.jpg" alt="Contact" class="card-img" />
+          <div class="card-body">
+            <span class="card-tag">Get In Touch</span>
+            <h3>Contact Us</h3>
+            <p>Have a question, want to partner with us, or just want to say hello? We'd love to hear from you.</p>
+            <span class="btn btn-primary" style="align-self:flex-start;">Contact &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Volunteering Card -->
+        <a href="volunteering.html" class="card" style="text-decoration:none;">
+          <img src="background_chamber.jpg" alt="Volunteering" class="card-img" />
+          <div class="card-body">
+            <span class="card-tag">Give Back</span>
+            <h3>Volunteering</h3>
+            <p>Help us change lives — whether as a trustee, judge, speaker or general volunteer. All roles welcome.</p>
+            <span class="btn btn-primary" style="align-self:flex-start;">Get Involved &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MISSION BANNER ===== -->
+  <section class="section section--dark">
+    <div class="container text-center">
+      <h2 class="text-cream">Our Mission</h2>
+      <div class="divider"></div>
+      <p style="max-width:640px; margin:0 auto 2rem; font-size:1.1rem; color:var(--cyan-light);">
+        To give back to our community by changing lives through debate — ensuring that everybody has equal access to the
+        skills, confidence and opportunities that debate provides.
+      </p>
+      <a href="about.html" class="btn btn-cream">Read Our Story</a>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section--grey">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="text-navy">Frequently Asked Questions</h2>
+        <div class="divider"></div>
+        <p>Everything you need to know about joining POI.</p>
+      </div>
+      <div style="max-width:720px; margin:0 auto;">
+
+        <div class="faq-item">
+          <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
+            What age group is POI for?
+            <span class="chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>POI welcomes students from <strong>Year 7 to Year 13</strong>. Whether you're just starting secondary
+              school or preparing for sixth form, there's a place for you here.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
+            Do I need any previous debate experience?
+            <span class="chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p><strong>No experience needed at all</strong> — that's exactly why POI exists! Our online skills workshops
+              are designed to take you from complete beginner to confident debater, step by step.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
+            How are sessions run?
+            <span class="chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>We run sessions both <strong>online and in person</strong>. In-person sessions are held in
+              <strong>Oxford</strong>. Online sessions are held over <strong>Google Meet</strong> — once you sign up, a
+              link will be sent out to you ahead of the session.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
+            How many people does the programme support?
+            <span class="chevron">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>We're still working this out as we grow! Online sessions will likely have <strong>no fixed cap</strong>,
+              while in-person sessions accommodate up to <strong>32 participants</strong>. If demand is high, we'll look
+              at running additional cohorts.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-row">
+        <img src="logo.jpg" alt="POI Logo" />
+        <span class="footer-brand-name">POI &ndash; Power of Interest</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <span class="footer-sep" aria-hidden="true">&bull;</span>
+        <a href="about.html">About</a>
+        <span class="footer-sep" aria-hidden="true">&bull;</span>
+        <a href="sessions.html">Sessions</a>
+        <span class="footer-sep" aria-hidden="true">&bull;</span>
+        <a href="volunteering.html">Volunteering</a>
+        <span class="footer-sep" aria-hidden="true">&bull;</span>
+        <a href="contact.html">Contact</a>
+
+      </nav>
+      <div class="footer-legal">
+        <a href="#" id="footer-company-policy-btn">Company Policies</a>
+        <span class="footer-sep" aria-hidden="true">&bull;</span>
+        <a href="#" id="footer-data-policy-btn">Data Safety Policy</a>
+      </div>
+      <p class="footer-copyright">&copy; 2026 POI &ndash; Power of Interest. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== POLICY MODALS ===== -->
+  <div class="policy-modal-overlay" id="company-policy-modal">
+    <div class="policy-modal">
+      <button class="policy-close" aria-label="Close">&times;</button>
+      <h2>Company Policies</h2>
+      <p style="color:var(--grey); font-size:0.85rem; margin-bottom:1.5rem;">Last updated: April 2026 &mdash; POI (Power
+        of Interest), in the process of charity registration.</p>
+      <h3>1. Equal Opportunities</h3>
+      <p>POI is committed to providing equal opportunities to all participants regardless of background, school type,
+        ethnicity, gender, religion, disability or socioeconomic status. Discrimination of any kind will not be
+        tolerated.</p>
+      <h3>2. Safeguarding</h3>
+      <p>The welfare of all participants, particularly those under 18, is our highest priority. POI operates in
+        accordance with national safeguarding guidelines. A designated Safeguarding Trustee oversees all safeguarding
+        matters. Any concerns should be reported to <a
+          href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a>.</p>
+      <h3>3. Code of Conduct</h3>
+      <p>Participants, volunteers and trustees are expected to conduct themselves respectfully and professionally at all
+        times, both in person and online. Harassment, bullying or inappropriate behaviour will result in removal from
+        sessions.</p>
+      <h3>4. Financial Governance</h3>
+      <p>All funds collected by POI are used exclusively to operate and grow our debate programme. Financial records are
+        maintained transparently and will be subject to charity commission reporting upon successful registration.</p>
+      <h3>5. Complaints Procedure</h3>
+      <p>Any complaints regarding POI activities, staff or volunteers should be submitted in writing to <a
+          href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a>. All complaints will be acknowledged within
+        5 working days.</p>
+    </div>
+  </div>
+
+  <div class="policy-modal-overlay" id="data-policy-modal">
+    <div class="policy-modal">
+      <button class="policy-close" aria-label="Close">&times;</button>
+      <h2>Data Safety Policy</h2>
+      <p style="color:var(--grey); font-size:0.85rem; margin-bottom:1.5rem;">Last updated: April 2026 &mdash; In
+        compliance with the UK Data Protection Act 2018 and UK GDPR.</p>
+      <h3>What Data We Collect</h3>
+      <p>When you sign up for a session or contact us, we collect: your name, email address, school name and type, and
+        your parent/guardian's name and email address (for participants under 18).</p>
+      <h3>How We Use Your Data</h3>
+      <ul style="margin:0.5rem 0 0.75rem 1.25rem; list-style:disc;">
+        <li>To confirm session registrations and send event information</li>
+        <li>To contact participants and guardians regarding sessions</li>
+        <li>To manage safeguarding obligations</li>
+      </ul>
+      <h3>Data Retention (TTL)</h3>
+      <p><strong>Data is not retained after the event for which it was collected.</strong> All personal information
+        submitted for a session is deleted within 30 days of that session taking place. Contact form submissions are
+        retained only for as long as necessary to respond to your enquiry, and no longer than 90 days.</p>
+      <h3>Your Rights</h3>
+      <p>Under the UK Data Protection Act 2018, you have the right to access, correct or request deletion of your
+        personal data at any time. Contact us at <a href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a> to
+        exercise these rights.</p>
+      <h3>Data Security</h3>
+      <p>Your data is stored securely and is only accessible to authorised POI trustees. We do not sell or share your
+        data with third parties.</p>
+      <h3>Contact</h3>
+      <p>For data protection enquiries: <a href="mailto:poi.alison.zh@gmail.com">poi.alison.zh@gmail.com</a></p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
 </body>
+
 </html>
