@@ -156,7 +156,7 @@ p  { font-size: 1rem; color: var(--grey); }
    ==================================================== */
 .hero {
   position: relative;
-  min-height: 540px;
+  min-height: calc(100vh - 78px);
   display: flex;
   align-items: center;
   background: var(--navy);
@@ -483,7 +483,7 @@ textarea { resize: vertical; min-height: 110px; }
   .nav { display: none; }
   .hamburger { display: flex; }
   .section { padding: 3.5rem 0; }
-  .hero { min-height: 420px; }
+  .hero { min-height: calc(100vh - 68px); }
   .about-grid { grid-template-columns: 1fr; }
   .about-grid .founders-wrap { order: -1; }
   .form-grid { grid-template-columns: 1fr; }
