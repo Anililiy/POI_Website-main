@@ -412,7 +412,7 @@ textarea { resize: vertical; min-height: 110px; }
 /* ====================================================
    PAGE HERO
    ==================================================== */
-.page-hero { background: var(--navy); padding: 4rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+.page-hero { background: var(--navy); padding: 7.5rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
 .page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 1; }
 .page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,45,122,0.72) 0%, rgba(27,45,122,0.52) 100%); }
 .page-hero-content { position: relative; z-index: 2; }
