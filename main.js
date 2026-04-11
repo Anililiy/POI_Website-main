@@ -91,27 +91,33 @@ function toggleFaq(btn) {
   btn.setAttribute('aria-expanded', String(isOpen));
 }
 
-// ---- Session form submission (mailto) ----
-function handleFormSubmit(event, sessionName) {
-  event.preventDefault();
-  const data = new FormData(event.target);
-  const lines = ['Session Sign-Up: ' + sessionName, ''];
-  data.forEach(function (value, key) { lines.push(key + ': ' + value); });
-  const body    = encodeURIComponent(lines.join('\n'));
-  const subject = encodeURIComponent('POI Sign-Up – ' + sessionName);
-  window.location.href = 'mailto:poi.alison.zh@gmail.com?cc=poi.maria.fa@gmail.com&subject=' + subject + '&body=' + body;
-  return false;
-}
-
-// ---- Contact form submission (mailto) ----
-function handleContactSubmit(event) {
-  event.preventDefault();
-  const data = new FormData(event.target);
-  const lines = ['POI Contact Form Submission', ''];
-  data.forEach(function (value, key) { lines.push(key + ': ' + value); });
-  const body    = encodeURIComponent(lines.join('\n'));
-  const reason  = data.get('Reason') || 'General';
-  const subject = encodeURIComponent('POI Contact – ' + reason);
-  window.location.href = 'mailto:poi.alison.zh@gmail.com?cc=poi.maria.fa@gmail.com&subject=' + subject + '&body=' + body;
-  return false;
-}
+// ---- Form submission (Formspree AJAX) ----
+  const forms = document.querySelectorAll('form[action^="https://formspree.io"]');
+  forms.forEach(function(form) {
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const statusBtn = form.querySelector('button[type="submit"]');
+      const originalText = statusBtn.innerText;
+      statusBtn.innerText = 'Sending...';
+      
+      const data = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          form.reset(); // Clear fields
+          statusBtn.innerText = 'Sent Successfully!';
+          setTimeout(function() { statusBtn.innerText = originalText; }, 4000);
+        } else {
+          statusBtn.innerText = 'Error sending';
+          setTimeout(function() { statusBtn.innerText = originalText; }, 4000);
+        }
+      } catch (error) {
+        statusBtn.innerText = 'Error sending';
+        setTimeout(function() { statusBtn.innerText = originalText; }, 4000);
+      }
+    });
+  });
