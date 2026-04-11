@@ -208,20 +208,20 @@ p  { font-size: 1rem; color: var(--grey); }
 
 .ai-label {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: rgba(0, 0, 0, 0.4);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.65rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+  bottom: 6px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.55rem;
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
   z-index: 10;
   pointer-events: none;
 }
 .ai-label-hero {
-  bottom: 16px;
-  right: 16px;
-  font-size: 0.75rem;
+  bottom: 12px;
+  right: 12px;
+  font-size: 0.6rem;
 }/* ====================================================
    SECTION HEADER
    ==================================================== */
