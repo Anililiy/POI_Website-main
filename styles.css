@@ -244,7 +244,7 @@ p  { font-size: 1rem; color: var(--grey); }
    FOUNDERS PHOTO
    ==================================================== */
 .founders-wrap { text-align: center; }
-.founders-img { max-width: 100%; width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center 20%; border-radius: var(--radius); box-shadow: var(--shadow); margin: 0 auto 1rem; display: block; }
+.founders-img { max-width: 100%; width: 100%; aspect-ratio: 5/4; object-fit: cover; object-position: center 20%; border-radius: var(--radius); box-shadow: var(--shadow); margin: 0 auto 1rem; display: block; }
 .founders-caption { font-size: 0.85rem; color: var(--grey); font-style: italic; }
 
 /* ====================================================
