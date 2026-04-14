@@ -82,6 +82,65 @@ p  { font-size: 1rem; color: var(--grey); }
 .btn-cream:hover { background: var(--white); transform: translateY(-2px); }
 
 /* ====================================================
+   ANNOUNCEMENT BAR
+   ==================================================== */
+.announce-bar {
+  background: var(--cyan);
+  color: var(--navy);
+  text-align: center;
+  padding: 0.55rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 1001;
+}
+.announce-bar a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s;
+}
+.announce-bar a:hover { opacity: 0.7; }
+.announce-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--navy);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(27,45,122,0.6); }
+  70%  { box-shadow: 0 0 0 7px rgba(27,45,122,0); }
+  100% { box-shadow: 0 0 0 0 rgba(27,45,122,0); }
+}
+
+/* Nav hiring dot */
+.nav-hiring-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--cyan);
+  border-radius: 50%;
+  margin-left: 5px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  animation: pulse-ring-cyan 1.6s ease-out infinite;
+}
+@keyframes pulse-ring-cyan {
+  0%   { box-shadow: 0 0 0 0 rgba(45,196,228,0.7); }
+  70%  { box-shadow: 0 0 0 6px rgba(45,196,228,0); }
+  100% { box-shadow: 0 0 0 0 rgba(45,196,228,0); }
+}
+
+/* ====================================================
    HEADER / NAV
    ==================================================== */
 .site-header {
