@@ -98,35 +98,13 @@
           <p class="required-note">All fields are compulsory &nbsp;&mdash;&nbsp; <em>Your data will not be retained after the event (Data Protection Act 2018).</em></p>
           <form id="form-online" action="https://formspree.io/f/mqegrgod" method="POST">
             <input type="hidden" name="_subject" value="New Sign-Up: Online Skills Workshop" />
+
+            <!-- Student Info -->
+            <p class="form-section-label">Student Information</p>
             <div class="form-grid">
               <div class="form-group">
                 <label for="online-name">Full Name</label>
                 <input type="text" id="online-name" name="Name" required placeholder="Your full name" />
-              </div>
-              <div class="form-group">
-                <label for="online-email">Email Address</label>
-                <input type="email" id="online-email" name="Email" required placeholder="you@example.com" />
-              </div>
-              <div class="form-group">
-                <label for="online-school">School Name</label>
-                <input type="text" id="online-school" name="School Name" required placeholder="Your school's full name" />
-              </div>
-              <div class="form-group">
-                <label for="online-school-type">Type of School</label>
-                <select id="online-school-type" name="Type of School" required>
-                  <option value="" disabled selected>Select school type</option>
-                  <option value="Independent">Independent</option>
-                  <option value="State Selective">State Selective</option>
-                  <option value="State">State</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="online-parent-name">Parent / Guardian Name</label>
-                <input type="text" id="online-parent-name" name="Parent Name" required placeholder="Parent or guardian's full name" />
-              </div>
-              <div class="form-group">
-                <label for="online-parent-email">Parent / Guardian Email</label>
-                <input type="email" id="online-parent-email" name="Parent Email" required placeholder="parent@example.com" />
               </div>
               <div class="form-group">
                 <label for="online-year-group">Year Group</label>
@@ -141,8 +119,44 @@
                   <option value="Year 13">Year 13</option>
                 </select>
               </div>
+              <div class="form-group full">
+                <label for="online-email">Student Email Address</label>
+                <input type="email" id="online-email" name="Email" required placeholder="you@example.com" />
+              </div>
             </div>
-            <div style="margin-top:1.25rem;">
+
+            <!-- School Info -->
+            <p class="form-section-label">School Information</p>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="online-school">School Name</label>
+                <input type="text" id="online-school" name="School Name" required placeholder="Your school's full name" />
+              </div>
+              <div class="form-group">
+                <label for="online-school-type">Type of School</label>
+                <select id="online-school-type" name="Type of School" required>
+                  <option value="" disabled selected>Select school type</option>
+                  <option value="Independent">Independent</option>
+                  <option value="State Selective">State Selective</option>
+                  <option value="State">State</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Parent / Guardian Info -->
+            <p class="form-section-label">Parent / Guardian Information</p>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="online-parent-name">Full Name</label>
+                <input type="text" id="online-parent-name" name="Parent Name" required placeholder="Parent or guardian's full name" />
+              </div>
+              <div class="form-group">
+                <label for="online-parent-email">Email Address</label>
+                <input type="email" id="online-parent-email" name="Parent Email" required placeholder="parent@example.com" />
+              </div>
+            </div>
+
+            <div style="margin-top:1.5rem;">
               <button type="submit" class="btn btn-primary">Submit Sign-Up</button>
             </div>
           </form>
@@ -186,35 +200,13 @@
           <p class="required-note">All fields are compulsory &nbsp;&mdash;&nbsp; <em>Your data will not be retained after the event (Data Protection Act 2018).</em></p>
           <form id="form-inperson" action="https://formspree.io/f/mqegrgod" method="POST">
             <input type="hidden" name="_subject" value="New Sign-Up: In-Person Debate" />
+
+            <!-- Student Info -->
+            <p class="form-section-label">Student Information</p>
             <div class="form-grid">
               <div class="form-group">
                 <label for="ip-name">Full Name</label>
                 <input type="text" id="ip-name" name="Name" required placeholder="Your full name" />
-              </div>
-              <div class="form-group">
-                <label for="ip-email">Email Address</label>
-                <input type="email" id="ip-email" name="Email" required placeholder="you@example.com" />
-              </div>
-              <div class="form-group">
-                <label for="ip-school">School Name</label>
-                <input type="text" id="ip-school" name="School Name" required placeholder="Your school's full name" />
-              </div>
-              <div class="form-group">
-                <label for="ip-school-type">Type of School</label>
-                <select id="ip-school-type" name="Type of School" required>
-                  <option value="" disabled selected>Select school type</option>
-                  <option value="Independent">Independent</option>
-                  <option value="State Selective">State Selective</option>
-                  <option value="State">State</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="ip-parent-name">Parent / Guardian Name</label>
-                <input type="text" id="ip-parent-name" name="Parent Name" required placeholder="Parent or guardian's full name" />
-              </div>
-              <div class="form-group">
-                <label for="ip-parent-email">Parent / Guardian Email</label>
-                <input type="email" id="ip-parent-email" name="Parent Email" required placeholder="parent@example.com" />
               </div>
               <div class="form-group">
                 <label for="ip-year-group">Year Group</label>
@@ -229,8 +221,44 @@
                   <option value="Year 13">Year 13</option>
                 </select>
               </div>
+              <div class="form-group full">
+                <label for="ip-email">Student Email Address</label>
+                <input type="email" id="ip-email" name="Email" required placeholder="you@example.com" />
+              </div>
             </div>
-            <div style="margin-top:1.25rem;">
+
+            <!-- School Info -->
+            <p class="form-section-label">School Information</p>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="ip-school">School Name</label>
+                <input type="text" id="ip-school" name="School Name" required placeholder="Your school's full name" />
+              </div>
+              <div class="form-group">
+                <label for="ip-school-type">Type of School</label>
+                <select id="ip-school-type" name="Type of School" required>
+                  <option value="" disabled selected>Select school type</option>
+                  <option value="Independent">Independent</option>
+                  <option value="State Selective">State Selective</option>
+                  <option value="State">State</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Parent / Guardian Info -->
+            <p class="form-section-label">Parent / Guardian Information</p>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="ip-parent-name">Full Name</label>
+                <input type="text" id="ip-parent-name" name="Parent Name" required placeholder="Parent or guardian's full name" />
+              </div>
+              <div class="form-group">
+                <label for="ip-parent-email">Email Address</label>
+                <input type="email" id="ip-parent-email" name="Parent Email" required placeholder="parent@example.com" />
+              </div>
+            </div>
+
+            <div style="margin-top:1.5rem;">
               <button type="submit" class="btn btn-primary">Submit Sign-Up</button>
             </div>
           </form>
