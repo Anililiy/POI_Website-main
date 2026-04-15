@@ -140,6 +140,50 @@ p  { font-size: 1rem; color: var(--grey); }
   100% { box-shadow: 0 0 0 0 rgba(45,196,228,0); }
 }
 
+/* Director role hiring indicator */
+.role-hiring-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--cyan);
+  border-radius: 50%;
+  margin-left: 6px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  flex-shrink: 0;
+  animation: pulse-ring-cyan 1.6s ease-out infinite;
+}
+.role-hiring-label {
+  display: inline-block;
+  background: var(--cyan);
+  color: var(--navy);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.5rem;
+  border-radius: 50px;
+  margin-left: 4px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  flex-shrink: 0;
+}
+.role-toggle.open .role-hiring-dot {
+  background: var(--cream);
+  animation: pulse-ring-cream 1.6s ease-out infinite;
+}
+.role-toggle.open .role-hiring-label {
+  background: var(--cream);
+  color: var(--navy);
+}
+@keyframes pulse-ring-cream {
+  0%   { box-shadow: 0 0 0 0 rgba(245,237,215,0.7); }
+  70%  { box-shadow: 0 0 0 6px rgba(245,237,215,0); }
+  100% { box-shadow: 0 0 0 0 rgba(245,237,215,0); }
+}
+
 /* ====================================================
    HEADER / NAV
    ==================================================== */
