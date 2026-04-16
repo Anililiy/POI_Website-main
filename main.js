@@ -14,6 +14,30 @@ document.addEventListener('DOMContentLoaded', function () {
     onScroll(); // run once on load
   }
 
+  // ---- Auto-open accordion from URL hash ----
+  // When navigating to volunteering.html#director, open the accordion
+  // and scroll it into view (offsetting for the sticky header).
+  if (window.location.hash) {
+    const targetId = window.location.hash.slice(1); // strip the '#'
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      const toggleBtn = targetEl.querySelector('.role-toggle');
+      if (toggleBtn) {
+        // Open the accordion
+        toggleRole(toggleBtn);
+      }
+      // Wait a tick so the accordion has expanded, then scroll with offset
+      setTimeout(function () {
+        const headerHeight = header ? header.offsetHeight : 0;
+        const announceBar = document.querySelector('.announce-bar');
+        const announceHeight = announceBar ? announceBar.offsetHeight : 0;
+        const top = targetEl.getBoundingClientRect().top + window.scrollY
+                    - headerHeight - announceHeight - 16;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }, 50);
+    }
+  }
+
   // ---- Hamburger menu ----
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobile-nav');
