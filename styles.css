@@ -351,6 +351,108 @@ p  { font-size: 1rem; color: var(--grey); }
 .founders-caption { font-size: 0.85rem; color: var(--grey); font-style: italic; }
 
 /* ====================================================
+   OUR TEAM
+   ==================================================== */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+@media (min-width: 600px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.team-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 1.8rem;
+  border: 1px solid rgba(27, 45, 122, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(27, 45, 122, 0.15);
+  border-color: rgba(45, 196, 228, 0.25);
+}
+.team-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.team-member-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+  border: 3px solid rgba(45, 196, 228, 0.15);
+  box-shadow: 0 4px 12px rgba(27, 45, 122, 0.08);
+  transition: all 0.3s ease;
+}
+.team-card:hover .team-member-img {
+  transform: scale(1.05);
+  border-color: var(--cyan);
+}
+.team-member-img-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 3px solid rgba(45, 196, 228, 0.15);
+  box-shadow: 0 4px 12px rgba(27, 45, 122, 0.08);
+  transition: all 0.3s ease;
+}
+.team-card:hover .team-member-img-placeholder {
+  transform: scale(1.05);
+  border-color: var(--cyan);
+}
+.team-member-role {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(45, 196, 228, 0.08);
+  color: var(--navy-light);
+  border: 1px solid rgba(45, 196, 228, 0.2);
+  border-radius: 50px;
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 0.85rem;
+}
+.team-member-name {
+  color: var(--navy);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.team-member-bio {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--grey);
+}
+
+/* ====================================================
    SESSIONS
    ==================================================== */
 .session-card {
@@ -509,6 +611,35 @@ p  { font-size: 1rem; color: var(--grey); }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+/* Align session card headers and CTA sections on desktop/tablet to keep everything in line */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sessions-grid .session-card-header {
+    min-height: 270px;
+  }
+  .sessions-grid .session-cta {
+    min-height: 220px;
+  }
+}
+@media (min-width: 1025px) {
+  .sessions-grid .session-card-header {
+    min-height: 220px;
+  }
+  .sessions-grid .session-cta {
+    min-height: 180px;
+  }
+}
+@media (min-width: 769px) {
+  .sessions-grid .session-card-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .sessions-grid .session-cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 }
 
 /* ---- Visual Flow timeline ---- */
