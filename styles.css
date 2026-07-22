@@ -952,15 +952,6 @@ textarea { resize: vertical; min-height: 110px; }
 /* ====================================================
    RESPONSIVE
    ==================================================== */
-@media (max-width: 1024px) {
-  .sessions-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  .sessions-grid .session-card-coming-soon {
-    grid-column: span 2;
-  }
-}
 
 @media (max-width: 900px) {
   .contact-grid { grid-template-columns: 1fr; }
