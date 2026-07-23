@@ -509,6 +509,19 @@ p  { font-size: 1rem; color: var(--grey); }
 .team-member-bio-container.expanded .bio-toggle-btn::after {
   transform: rotate(180deg);
 }
+.team-member-email {
+  font-size: 0.85rem;
+  color: var(--cyan);
+  text-decoration: none;
+  margin-top: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  word-break: break-all;
+}
+.team-member-email:hover {
+  color: var(--navy-light);
+  text-decoration: underline;
+}
 
 /* ====================================================
    SESSIONS
