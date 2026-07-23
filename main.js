@@ -83,10 +83,24 @@ document.addEventListener('DOMContentLoaded', function () {
       if (e.target === overlay) closeModal(overlay);
     });
   });
+
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       document.querySelectorAll('.policy-modal-overlay.open').forEach(closeModal);
     }
+  });
+
+  // ---- Team bio expand/collapse ----
+  const bioToggles = document.querySelectorAll('.bio-toggle-btn');
+  bioToggles.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const container = btn.closest('.team-member-bio-container');
+      if (container) {
+        const isExpanded = container.classList.toggle('expanded');
+        btn.setAttribute('aria-expanded', String(isExpanded));
+        btn.textContent = isExpanded ? 'Read Less' : 'Read More';
+      }
+    });
   });
 });
 

@@ -450,7 +450,64 @@ p  { font-size: 1rem; color: var(--grey); }
   font-size: 0.88rem;
   line-height: 1.6;
   color: var(--grey);
-  min-height: 7.5rem; /* Ensures space is left for descriptions */
+  min-height: 3.5rem; /* Reduced height since descriptions are shorter now */
+  margin-bottom: 0;
+}
+.team-member-bio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.team-member-bio-extra {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  width: 100%;
+}
+.team-member-bio-extra p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--grey);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+.team-member-bio-container.expanded .team-member-bio-extra {
+  max-height: 350px;
+  opacity: 1;
+}
+.bio-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--cyan);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  margin-top: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+.bio-toggle-btn:hover {
+  color: var(--navy-light);
+  background: rgba(45, 196, 228, 0.05);
+}
+.bio-toggle-btn::after {
+  content: '↓';
+  font-size: 0.75rem;
+  font-weight: 800;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+.team-member-bio-container.expanded .bio-toggle-btn::after {
+  transform: rotate(180deg);
 }
 
 /* ====================================================
