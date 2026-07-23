@@ -689,6 +689,9 @@ p  { font-size: 1rem; color: var(--grey); }
   .sessions-grid .session-card-header {
     min-height: 270px;
   }
+  .sessions-grid .session-meta {
+    min-height: 230px;
+  }
   .sessions-grid .session-cta {
     min-height: 220px;
   }
@@ -696,6 +699,9 @@ p  { font-size: 1rem; color: var(--grey); }
 @media (min-width: 1025px) {
   .sessions-grid .session-card-header {
     min-height: 220px;
+  }
+  .sessions-grid .session-meta {
+    min-height: 195px;
   }
   .sessions-grid .session-cta {
     min-height: 180px;
