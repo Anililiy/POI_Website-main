@@ -1227,3 +1227,116 @@ textarea { resize: vertical; min-height: 110px; }
   .cards-grid { gap: 1.2rem; }
   .form-wrapper { padding: 1.25rem; }
 }
+
+/* ====================================================
+   HERO COUNTDOWN TIMER
+   ==================================================== */
+.hero-countdown {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 520px;
+  background: rgba(17, 29, 82, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(45, 196, 228, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.countdown-badge {
+  display: inline-block;
+  background: rgba(45, 196, 228, 0.15);
+  color: var(--cyan);
+  border: 1px solid rgba(45, 196, 228, 0.3);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+}
+
+/* Timer styles */
+.countdown-timer {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  flex: 1;
+  background: rgba(27, 45, 122, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+  min-width: 85px;
+  padding: 0.8rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdown-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(45, 196, 228, 0.4);
+  box-shadow: 0 8px 24px rgba(45, 196, 228, 0.15);
+}
+
+.countdown-number {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: var(--cyan);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 0 12px rgba(45, 196, 228, 0.3);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.countdown-finished {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cream);
+  animation: pulse-active 2s infinite alternate;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+@keyframes pulse-active {
+  0% { text-shadow: 0 0 10px rgba(45, 196, 228, 0.5); }
+  100% { text-shadow: 0 0 25px rgba(45, 196, 228, 0.9), 0 0 5px var(--cyan); }
+}
+
+@media (max-width: 576px) {
+  .hero-countdown {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .countdown-timer {
+    gap: 0.5rem;
+  }
+  .countdown-item {
+    min-width: 70px;
+    padding: 0.6rem 0.25rem;
+  }
+  .countdown-number {
+    font-size: 1.5rem;
+  }
+  .countdown-label {
+    font-size: 0.55rem;
+  }
+}

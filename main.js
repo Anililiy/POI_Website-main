@@ -102,6 +102,42 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  // ---- Countdown Timer ----
+  const countdownTimer = document.getElementById('countdown-timer');
+  if (countdownTimer) {
+    // Target date: August 14, 2026, 00:00:00
+    const targetDate = new Date('August 14, 2026 00:00:00').getTime();
+
+    const updateCountdown = function () {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        countdownTimer.innerHTML = '<div class="countdown-finished">The new POI experience is live!</div>';
+        clearInterval(timerInterval);
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+      if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+    };
+
+    updateCountdown(); // Run immediately
+    const timerInterval = setInterval(updateCountdown, 1000);
+  }
 });
 
 function openModal(id) {
