@@ -1008,6 +1008,14 @@ textarea { resize: vertical; min-height: 110px; }
 .role-content.open { display: block; }
 .role-content p { color: var(--text-dark); margin-bottom: 0.75rem; font-size: 0.95rem; }
 .role-badge { display: inline-block; background: rgba(45,196,228,0.15); color: var(--cyan); border-radius: 50px; padding: 0.25rem 0.75rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.75rem; }
+.role-status-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1; }
+.role-status-badge.closed { background-color: #fee2e2; color: #ef4444; border: 1px solid #fecaca; }
+.role-toggle.open .role-status-badge.closed { background-color: rgba(239, 68, 68, 0.2); color: #fca5a5; border-color: rgba(239, 68, 68, 0.4); }
+.role-status-badge.open { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.role-toggle.open .role-status-badge.open { background-color: rgba(22, 101, 52, 0.2); color: #86efac; border-color: rgba(22, 101, 52, 0.4); }
+.hiring-status-notice { display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem; font-size: 0.9rem; line-height: 1.5; }
+.hiring-status-notice.closed { background-color: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+.hiring-status-notice.closed svg { color: #ef4444; flex-shrink: 0; margin-top: 2px; }
 .role-contact { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #dde3f0; }
 .role-contact h5 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--grey); margin-bottom: 0.5rem; }
 .role-contact a { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 600; color: var(--navy-light); margin-right: 1rem; margin-bottom: 0.4rem; }
