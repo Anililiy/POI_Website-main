@@ -106,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // ---- Countdown Timer ----
   const countdownTimer = document.getElementById('countdown-timer');
   if (countdownTimer) {
-    // Target date: August 20, 2026, 00:00:00
-    const targetDate = new Date('August 20, 2026 00:00:00').getTime();
+    // Target date: August 21, 2026, 00:00:00
+    const targetDate = new Date('August 21, 2026 00:00:00').getTime();
 
     const updateCountdown = function () {
       const now = new Date().getTime();
