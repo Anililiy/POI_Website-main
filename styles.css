@@ -1502,6 +1502,34 @@ p {
   text-decoration: underline;
 }
 
+.policy-font-license {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: #64748b;
+  max-width: 900px;
+}
+
+.policy-font-license h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 0.4rem;
+}
+
+.policy-font-license p {
+  margin-bottom: 0.4rem;
+}
+
+.policy-font-license a {
+  color: #94a3b8 !important;
+  text-decoration: underline;
+}
+
 /* ====================================================
    MOBILE & RESPONSIVE REFINEMENTS
    ==================================================== */
