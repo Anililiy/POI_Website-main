@@ -738,32 +738,36 @@ p {
 }
 
 .card-light-split h2 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
   color: #060818 !important;
   font-weight: 900;
   letter-spacing: -0.025em;
   text-transform: uppercase;
-  flex: 1 1 300px;
-  max-width: 420px;
-  line-height: 1.15;
+  flex-shrink: 0;
+  max-width: 360px;
+}
+
+.card-light-content {
+  flex: 1;
+  max-width: 680px;
 }
 
 .card-light-content .quote-highlight {
   font-family: 'Sora', sans-serif;
-  font-size: clamp(1.2rem, 3vw, 1.65rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
   font-weight: 800;
   color: #1B2D7A !important;
-  line-height: 1.4;
-  margin-bottom: 0.35rem !important;
+  line-height: 1.45;
+  margin-bottom: 0.85rem;
 }
 
 .card-light-content .quote-author {
   font-family: 'Sora', sans-serif;
   font-weight: 800 !important;
   color: #1B2D7A !important;
-  font-size: 0.95rem !important;
-  margin-top: 0.35rem !important;
-  margin-bottom: 1.25rem !important;
+  font-size: 1.05rem !important;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
   display: block;
 }
 
