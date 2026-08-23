@@ -276,8 +276,69 @@ p {
 }
 
 /* ====================================================
-   SCROLL REVEAL ANIMATIONS (Smooth Entrance)
+   SCROLL REVEAL & SMOOTH SCROLL EFFECTS
    ==================================================== */
+/* Top Reading Scroll Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #F2C50F, #FDE047);
+  z-index: 10000;
+  width: 0%;
+  box-shadow: 0 0 12px rgba(242, 197, 15, 0.7);
+  transition: width 0.1s ease-out;
+  pointer-events: none;
+}
+
+/* Floating Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2.2rem;
+  right: 2.2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #101944;
+  border: 1.5px solid rgba(242, 197, 15, 0.4);
+  color: #F2C50F;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(18px) scale(0.9);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+  z-index: 990;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+  background: #F2C50F;
+  color: #060818;
+  border-color: #F2C50F;
+  box-shadow: 0 0 24px rgba(242, 197, 15, 0.5);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.back-to-top:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(45px);
@@ -288,6 +349,22 @@ p {
 .reveal.visible {
   opacity: 1 !important;
   transform: translateY(0) !important;
+}
+
+/* Staggered Grid Item Reveals */
+.services-grid.visible .service-card:nth-child(1),
+.join-section-grid.visible .join-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.services-grid.visible .service-card:nth-child(2),
+.join-section-grid.visible .join-card:nth-child(2) {
+  transition-delay: 0.22s;
+}
+
+.services-grid.visible .service-card:nth-child(3),
+.join-section-grid.visible .join-card:nth-child(3) {
+  transition-delay: 0.34s;
 }
 
 .reveal-delay-1 { transition-delay: 0.15s; }

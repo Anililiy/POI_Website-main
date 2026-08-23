@@ -56,19 +56,65 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // === 3. HEADER SCROLL (Show header only on scroll) ===
+  // === 3. HEADER SCROLL & READING PROGRESS BAR & BACK TO TOP ===
   const header = document.querySelector('.site-header');
-  if (header) {
-    const updateHeaderScroll = () => {
-      if (window.scrollY > 40) {
+
+  // Dynamically inject top progress bar
+  let progressBar = document.querySelector('.scroll-progress-bar');
+  if (!progressBar) {
+    progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress-bar';
+    document.body.appendChild(progressBar);
+  }
+
+  // Dynamically inject back-to-top button
+  let backToTop = document.querySelector('.back-to-top');
+  if (!backToTop) {
+    backToTop = document.createElement('button');
+    backToTop.className = 'back-to-top';
+    backToTop.setAttribute('aria-label', 'Back to top');
+    backToTop.innerHTML = '&uarr;';
+    document.body.appendChild(backToTop);
+
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  const handleScrollEffects = () => {
+    const scrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    // 1. Update Header Glassmorphism
+    if (header) {
+      if (scrollY > 40) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
-    };
-    window.addEventListener('scroll', updateHeaderScroll, { passive: true });
-    updateHeaderScroll();
-  }
+    }
+
+    // 2. Update Progress Bar
+    if (progressBar && docHeight > 0) {
+      const scrollPercent = Math.min(Math.max((scrollY / docHeight) * 100, 0), 100);
+      progressBar.style.width = scrollPercent + '%';
+    }
+
+    // 3. Update Back To Top Visibility
+    if (backToTop) {
+      if (scrollY > 350) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    }
+  };
+
+  window.addEventListener('scroll', handleScrollEffects, { passive: true });
+  handleScrollEffects();
 
   // === 4. ACCORDION COMPONENT (FAQ Page) ===
   const accordions = document.querySelectorAll('.accordion-item');
