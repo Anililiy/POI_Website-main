@@ -958,15 +958,15 @@ p {
 }
 
 /* ====================================================
-   CARD LIGHT CONTAINER (White Highlight Card - Screenshot 4)
+   CARD LIGHT CONTAINER (Always Crisp White Highlight Card - Screenshot 4)
    ==================================================== */
 .card-light-container {
-  background: var(--card-light-bg);
+  background: #FFFFFF !important;
   border-radius: 24px;
   padding: 4.5rem 3.8rem;
-  box-shadow: var(--card-shadow);
-  border: 1.5px solid var(--card-light-border);
-  color: var(--heading-color);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22), 0 0 35px rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #1E3A8A !important;
 }
 
 .card-light-split {
@@ -979,7 +979,7 @@ p {
 
 .card-light-split h2 {
   font-size: clamp(2.4rem, 5vw, 3.6rem);
-  color: var(--heading-color) !important;
+  color: #1E3A8A !important;
   font-weight: 900;
   letter-spacing: -0.025em;
   text-transform: uppercase;
@@ -996,7 +996,7 @@ p {
   font-family: 'Sora', sans-serif;
   font-size: clamp(1.3rem, 2.5vw, 1.7rem);
   font-weight: 800;
-  color: var(--heading-color) !important;
+  color: #1E3A8A !important;
   line-height: 1.45;
   margin-bottom: 0.85rem;
 }
@@ -1004,7 +1004,7 @@ p {
 .card-light-content .quote-author {
   font-family: 'Sora', sans-serif;
   font-weight: 800 !important;
-  color: var(--heading-color) !important;
+  color: #1E3A8A !important;
   font-size: 1.05rem !important;
   margin-top: 0;
   margin-bottom: 1.5rem;
@@ -1012,7 +1012,7 @@ p {
 }
 
 .card-light-content p {
-  color: var(--text-slate) !important;
+  color: #334155 !important;
   font-size: 1.02rem;
   line-height: 1.75;
 }
@@ -1021,7 +1021,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  color: var(--blue-mid) !important;
+  color: #2563EB !important;
   font-weight: 800;
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -1031,7 +1031,7 @@ p {
 }
 
 .card-light-link:hover {
-  color: var(--blue-light) !important;
+  color: #1D4ED8 !important;
   transform: translateX(5px);
 }
 
