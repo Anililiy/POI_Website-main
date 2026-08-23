@@ -201,4 +201,92 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // === 6. ADAPTIVE LIGHT / DARK MODE ENGINE ===
+  const themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function getCurrentTheme() {
+    const savedTheme = localStorage.getItem('poi-theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      return savedTheme;
+    }
+    return themeMediaQuery.matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme, save = false) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.style.colorScheme = 'dark';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.documentElement.style.colorScheme = 'light';
+    }
+    if (save) {
+      localStorage.setItem('poi-theme', theme);
+    }
+    updateToggleIcons(theme);
+  }
+
+  function updateToggleIcons(theme) {
+    const iconHtml = theme === 'dark' ? '☀️' : '🌙';
+    const ariaLabel = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+    
+    document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+      btn.innerHTML = iconHtml;
+      btn.setAttribute('aria-label', ariaLabel);
+      btn.setAttribute('title', ariaLabel);
+    });
+
+    document.querySelectorAll('.theme-toggle-mobile').forEach(btn => {
+      btn.innerHTML = `<span>Theme</span><span>${iconHtml} ${theme === 'dark' ? 'Dark' : 'Light'}</span>`;
+    });
+  }
+
+  // Initialize theme on load
+  const initialTheme = getCurrentTheme();
+  applyTheme(initialTheme, false);
+
+  // Listen to OS-level theme changes dynamically
+  themeMediaQuery.addEventListener('change', (e) => {
+    // Only adapt automatically if the user hasn't explicitly saved a preference
+    if (!localStorage.getItem('poi-theme')) {
+      applyTheme(e.matches ? 'dark' : 'light', false);
+    }
+  });
+
+  // Inject Theme Toggle into Desktop Nav
+  const navContainer = document.querySelector('.nav');
+  if (navContainer && !document.querySelector('.theme-toggle-btn')) {
+    const toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
+    toggleBtn.className = 'theme-toggle-btn';
+    toggleBtn.innerHTML = initialTheme === 'dark' ? '☀️' : '🌙';
+    toggleBtn.setAttribute('aria-label', initialTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    toggleBtn.setAttribute('title', initialTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+
+    toggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || getCurrentTheme();
+      const nextTheme = current === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme, true);
+    });
+
+    navContainer.appendChild(toggleBtn);
+  }
+
+  // Inject Theme Toggle into Mobile Nav
+  const mobileNavContainer = document.querySelector('.mobile-nav');
+  if (mobileNavContainer && !document.querySelector('.theme-toggle-mobile')) {
+    const mobileToggleBtn = document.createElement('button');
+    mobileToggleBtn.type = 'button';
+    mobileToggleBtn.className = 'theme-toggle-mobile';
+    mobileToggleBtn.innerHTML = `<span>Theme</span><span>${initialTheme === 'dark' ? '☀️ Dark' : '🌙 Light'}</span>`;
+
+    mobileToggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || getCurrentTheme();
+      const nextTheme = current === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme, true);
+    });
+
+    mobileNavContainer.appendChild(mobileToggleBtn);
+  }
 });
