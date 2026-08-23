@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }, {
       root: null,
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.05,
+      rootMargin: '0px 0px -20px 0px'
     });
 
     reveals.forEach(el => revealObserver.observe(el));
@@ -56,11 +56,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // === 3. HEADER SCROLL BACKGROUND & SHADOW ===
+  // === 3. HEADER SCROLL (Show header only on scroll) ===
   const header = document.querySelector('.site-header');
   if (header) {
     const updateHeaderScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 40) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
