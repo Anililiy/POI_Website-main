@@ -1273,10 +1273,15 @@ p {
 }
 
 .footer-meta {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  max-width: 600px;
-  line-height: 1.6;
+  font-size: 0.82rem;
+  color: var(--text-slate);
+  max-width: 850px;
+  line-height: 1.65;
+}
+
+.footer-meta a {
+  color: var(--yellow) !important;
+  text-decoration: underline;
 }
 
 /* ====================================================
