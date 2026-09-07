@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
 
+# Block non-page resources from being indexed
+Disallow: /backup-site/
+Disallow: /*.jpeg$
+Disallow: /*.jpg$
+Disallow: /*.png$
+Disallow: /*.JPG$
+
+# Sitemap
 Sitemap: https://poi.org.uk/sitemap.xml
+
+# Crawl-delay (be polite to Googlebot)
+Crawl-delay: 1
