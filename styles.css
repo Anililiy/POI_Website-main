@@ -971,10 +971,8 @@ p {
 
 .card-light-split {
   display: flex;
-  justify-content: space-between;
-  gap: 3.5rem;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .card-light-split h2 {
@@ -983,14 +981,9 @@ p {
   font-weight: 900;
   letter-spacing: -0.025em;
   text-transform: uppercase;
-  flex: 0 0 auto;
-  width: 100%;
-  max-width: 360px;
-  min-width: 200px;
 }
 
 .card-light-content {
-  flex: 1;
   max-width: 680px;
 }
 
@@ -1637,14 +1630,11 @@ p {
 
   .card-light-split {
     gap: 1.25rem;
-    flex-direction: column;
   }
 
   .card-light-split h2 {
     font-size: clamp(1.8rem, 8vw, 2.4rem);
     margin-bottom: 0;
-    max-width: 100%;
-    width: 100%;
   }
 
   .card-light-content .quote-highlight {
