@@ -1731,7 +1731,7 @@ p {
   color: var(--heading-color);
   letter-spacing: 0.01em;
   margin-top: 1.2rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 1.2rem;
   animation: announcementFadeIn 0.8s var(--ease-fluid) 0.3s both;
   box-shadow: 0 4px 20px rgba(242, 197, 15, 0.1);
 }
