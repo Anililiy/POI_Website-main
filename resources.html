@@ -36,6 +36,7 @@
         <a href="index.html">Home</a>
         <a href="about.html">Our Story</a>
         <a href="sessions.html">Sessions</a>
+        <a href="resources.html" class="active">Resources</a>
         <a href="volunteering.html">Volunteer</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
@@ -49,6 +50,7 @@
       <a href="index.html">Home</a>
       <a href="about.html">Our Story</a>
       <a href="sessions.html">Sessions</a>
+      <a href="resources.html" class="active">Resources</a>
       <a href="volunteering.html">Volunteer</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
@@ -56,128 +58,144 @@
     </nav>
   </header>
 
-  <!-- ===== PASSWORD GATE OVERLAY ===== -->
-  <div class="pw-gate" id="pw-gate">
-    <div class="pw-gate-content reveal visible">
-      <div class="pw-gate-icon">🔒</div>
-      <h2>Session Resources</h2>
-      <p>This area is for registered POI session attendees. Enter the password shared in your session to access slides and recordings.</p>
-      <form class="pw-gate-form" id="pw-form" autocomplete="off">
-        <div class="pw-input-wrap">
-          <input
-            type="password"
-            id="pw-input"
-            class="pw-gate-input"
-            placeholder="Enter password"
-            autocomplete="off"
-            aria-label="Session resources password"
-            required
-          />
-          <button type="button" class="pw-toggle-vis" id="pw-toggle-vis" aria-label="Toggle password visibility" title="Show password">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </button>
+  <main id="main-content">
+    <!-- ===== PASSWORD GATE SECTION ===== -->
+    <section class="pw-gate-section" id="pw-gate">
+      <div class="pw-gate-content">
+        <div class="pw-gate-icon">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg>
         </div>
-        <button type="submit" class="btn btn-primary pw-gate-btn">Unlock Resources &rarr;</button>
-      </form>
-      <p class="pw-gate-error" id="pw-error" role="alert" aria-live="polite"></p>
-      <p class="pw-gate-hint">Lost your password? Check the chat from your last session, or <a href="contact.html">contact us</a>.</p>
+        <h2>Session Resources</h2>
+        <p>This area is for registered POI session attendees. Enter the password shared in your session to access slides and recordings.</p>
+        <form class="pw-gate-form" id="pw-form" autocomplete="off">
+          <div class="pw-input-wrap">
+            <input
+              type="password"
+              id="pw-input"
+              class="pw-gate-input"
+              placeholder="Enter password"
+              autocomplete="off"
+              aria-label="Session resources password"
+              required
+            />
+            <button type="button" class="pw-toggle-vis" id="pw-toggle-vis" aria-label="Toggle password visibility" title="Show password">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <button type="submit" class="btn btn-primary pw-gate-btn">Unlock Resources &rarr;</button>
+        </form>
+        <p class="pw-gate-error" id="pw-error" role="alert" aria-live="polite"></p>
+        <p class="pw-gate-hint">Lost your password? Check the chat from your last session, or <a href="contact.html">contact us</a>.</p>
+        <div class="pw-gate-signup">
+          <p>Want access? <a href="sessions.html">Sign up for our free online sessions</a> to receive the password.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROTECTED CONTENT (hidden until unlocked) ===== -->
+    <div class="pw-protected" id="pw-protected" style="display: none;">
+
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <span class="hero-tag">Members Area</span>
+          <h1>Session Resources</h1>
+          <p>Slides, recordings, and materials from our debate sessions &mdash; all in one place.</p>
+        </div>
+      </section>
+
+      <!-- Resources Grid Section -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header-split">
+            <h2>Past Sessions</h2>
+            <div class="section-header-desc">
+              <span class="arrow">&rarr;</span>
+              <p>
+                Missed a session or want to revisit the material? Browse all slides and recordings below. New content is added after each session.
+              </p>
+            </div>
+          </div>
+
+          <div class="resources-grid">
+
+            <!-- Session 1 Card -->
+            <div class="resource-card">
+              <div class="resource-card-header">
+                <span class="resource-session-num">Session 01</span>
+                <span class="resource-date">Sunday 20th September 2026</span>
+              </div>
+              <h3>Intro to BP Debate</h3>
+              <p>An introduction to the British Parliamentary debate format &mdash; roles, structure, and how a round works.</p>
+              <div class="resource-tags">
+                <span class="resource-tag resource-tag--slides">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  Slides
+                </span>
+                <span class="resource-tag resource-tag--online">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Online
+                </span>
+              </div>
+              <div class="resource-links">
+                <!-- Replace # with actual links when available -->
+                <a href="#" class="btn btn-primary resource-btn" target="_blank" rel="noopener noreferrer">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  View Slides
+                </a>
+                <button class="btn btn-outline resource-btn" disabled style="opacity: 0.45; cursor: not-allowed;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  Recording Coming Soon
+                </button>
+              </div>
+            </div>
+
+            <!-- Placeholder: More Sessions Coming -->
+            <div class="resource-card resource-card--placeholder">
+              <div class="resource-card-placeholder-inner">
+                <div class="resource-placeholder-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3>More Sessions Coming</h3>
+                <p>New slides and recordings will appear here after each session. Check back soon!</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </div>
-  </div>
+  </main>
 
-  <!-- ===== PROTECTED CONTENT (hidden until unlocked) ===== -->
-  <div class="pw-protected" id="pw-protected">
-
-    <!-- Page Header -->
-    <section class="page-header">
-      <div class="container reveal">
-        <span class="hero-tag">Members Area</span>
-        <h1>Session Resources</h1>
-        <p>Slides, recordings, and materials from our debate sessions &mdash; all in one place.</p>
-      </div>
-    </section>
-
-    <!-- Resources Grid -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header-split reveal">
-          <h2>Past Sessions</h2>
-          <div class="section-header-desc">
-            <span class="arrow">&rarr;</span>
-            <p>
-              Missed a session or want to revisit the material? Browse all slides and recordings below. New content is added after each session.
-            </p>
-          </div>
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner" style="border-top: none; padding-top: 0;">
+        <div class="footer-brand-row">
+          <img src="logo.jpg" alt="POI Logo" class="footer-logo" />
+          <span class="footer-brand-name">POI &ndash; Power of Interest</span>
         </div>
-
-        <div class="resources-grid">
-
-          <!-- Session 1 Card -->
-          <div class="resource-card reveal reveal-delay-1">
-            <div class="resource-card-header">
-              <span class="resource-session-num">Session 01</span>
-              <span class="resource-date">Sunday 20th September 2026</span>
-            </div>
-            <h3>Intro to BP Debate</h3>
-            <p>An introduction to the British Parliamentary debate format — roles, structure, and how a round works.</p>
-            <div class="resource-tags">
-              <span class="resource-tag resource-tag--slides">📊 Slides</span>
-              <span class="resource-tag resource-tag--online">💻 Online</span>
-            </div>
-            <div class="resource-links">
-              <!-- Replace # with actual links when available -->
-              <a href="#" class="btn btn-primary resource-btn" target="_blank" rel="noopener noreferrer">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                View Slides
-              </a>
-              <button class="btn btn-outline resource-btn" disabled style="opacity: 0.45; cursor: not-allowed;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                Recording Coming Soon
-              </button>
-            </div>
-          </div>
-
-          <!-- Placeholder: More Sessions Coming -->
-          <div class="resource-card resource-card--placeholder reveal reveal-delay-2">
-            <div class="resource-card-placeholder-inner">
-              <span class="resource-placeholder-icon">📅</span>
-              <h3>More Sessions Coming</h3>
-              <p>New slides and recordings will appear here after each session. Check back soon!</p>
-            </div>
-          </div>
-
-        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">Our Story</a>
+          <a href="sessions.html">Sessions</a>
+          <a href="resources.html">Resources</a>
+          <a href="volunteering.html">Volunteer</a>
+          <a href="policies.html">Policies</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <p class="footer-copyright">&copy; 2026 POI &ndash; Power of Interest UK. All rights reserved.</p>
+        <p class="footer-meta">Company Number: 17391401 (registered with Companies House) &bull; Proudly based in Oxford, Oxfordshire, England, serving students across the UK. &bull; Typeface: <a href="fonts/LICENSE-Sora.txt" target="_blank" style="color: inherit; text-decoration: underline;">Sora (SIL OFL)</a></p>
       </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-inner" style="border-top: none; padding-top: 0;">
-          <div class="footer-brand-row">
-            <img src="logo.jpg" alt="POI Logo" class="footer-logo" />
-            <span class="footer-brand-name">POI &ndash; Power of Interest</span>
-          </div>
-          <nav class="footer-links" aria-label="Footer navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html">Our Story</a>
-            <a href="sessions.html">Sessions</a>
-            <a href="volunteering.html">Volunteer</a>
-            <a href="policies.html">Policies</a>
-            <a href="faq.html">FAQ</a>
-            <a href="contact.html">Contact</a>
-          </nav>
-          <p class="footer-copyright">&copy; 2026 POI &ndash; Power of Interest UK. All rights reserved.</p>
-          <p class="footer-meta">Company Number: 17391401 (registered with Companies House) &bull; Proudly based in Oxford, Oxfordshire, England, serving students across the UK. &bull; Typeface: <a href="fonts/LICENSE-Sora.txt" target="_blank" style="color: inherit; text-decoration: underline;">Sora (SIL OFL)</a></p>
-        </div>
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <script src="main.js"></script>
   <script>
   /* ==========================================================================
      Resources Page – Password Gate (SHA-256 Hash Comparison)
-     Password: POIdebate2026
      ========================================================================== */
   (function () {
     const HASH = 'a8ba8af9d1e66166e335a25a836a663d5d5cfce71054921fd2c8acb24ea0d058';
@@ -197,13 +215,16 @@
       unlockContent(true);
     }
 
-    // Toggle password visibility
+    // Toggle password visibility with icon update
     if (toggleVis && input) {
       toggleVis.addEventListener('click', function () {
         const isPassword = input.type === 'password';
         input.type = isPassword ? 'text' : 'password';
         toggleVis.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
         toggleVis.setAttribute('title', isPassword ? 'Hide password' : 'Show password');
+        toggleVis.innerHTML = isPassword
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
       });
     }
 
@@ -226,11 +247,13 @@
           showError('Incorrect password. Please try again.');
           input.value = '';
           input.focus();
-          // Shake animation
-          gate.querySelector('.pw-gate-content').classList.add('pw-shake');
-          setTimeout(() => {
-            gate.querySelector('.pw-gate-content').classList.remove('pw-shake');
-          }, 500);
+          const card = gate.querySelector('.pw-gate-content');
+          if (card) {
+            card.classList.add('pw-shake');
+            setTimeout(() => {
+              card.classList.remove('pw-shake');
+            }, 500);
+          }
         }
       });
     }
@@ -240,18 +263,19 @@
         gate.style.display = 'none';
         protectedContent.style.display = 'block';
         protectedContent.style.opacity = '1';
+        protectedContent.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
       } else {
-        gate.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        gate.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
         gate.style.opacity = '0';
-        gate.style.transform = 'scale(0.96)';
+        gate.style.transform = 'scale(0.97)';
         setTimeout(() => {
           gate.style.display = 'none';
           protectedContent.style.display = 'block';
-          // Trigger reflow then animate in
-          protectedContent.offsetHeight;
+          protectedContent.offsetHeight; // trigger reflow
           protectedContent.style.opacity = '1';
           protectedContent.style.transform = 'translateY(0)';
-        }, 500);
+          protectedContent.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        }, 400);
       }
     }
 
