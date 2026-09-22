@@ -34,12 +34,22 @@
       </a>
       <nav class="nav" role="navigation" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="about.html">Our Story</a>
-        <a href="sessions.html">Sessions</a>
-        <a href="resources.html" class="active">Resources</a>
-        <a href="volunteering.html">Volunteer</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-btn active" id="pages-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            <span>Pages</span>
+            <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" id="pages-dropdown-menu" role="menu" aria-labelledby="pages-dropdown-btn">
+            <a href="index.html" role="menuitem">Home</a>
+            <a href="about.html" role="menuitem">Our Story</a>
+            <a href="sessions.html" role="menuitem">Sessions</a>
+            <a href="resources.html" class="active" role="menuitem">Resources</a>
+            <a href="volunteering.html" role="menuitem">Volunteer</a>
+            <a href="faq.html" role="menuitem">FAQ</a>
+            <a href="policies.html" role="menuitem">Policies</a>
+            <a href="contact.html" role="menuitem">Contact</a>
+          </div>
+        </div>
         <a href="sessions.html" class="nav-cta">Sign Up</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -53,6 +63,7 @@
       <a href="resources.html" class="active">Resources</a>
       <a href="volunteering.html">Volunteer</a>
       <a href="faq.html">FAQ</a>
+      <a href="policies.html">Policies</a>
       <a href="contact.html">Contact</a>
       <a href="sessions.html" class="btn btn-primary" style="margin-top: 1rem;">Sign Up &rarr;</a>
     </nav>
@@ -126,7 +137,7 @@
                 <span class="resource-date">Sunday 20th September 2026</span>
               </div>
               <h3>Intro to BP Debate</h3>
-              <p>An introduction to the British Parliamentary debate format &mdash; roles, structure, and how a round works.</p>
+              <p>An introduction to the British Parliamentary debate format &mdash; roles, structure, speaking order, motion types, and planning strategy.</p>
               <div class="resource-tags">
                 <span class="resource-tag resource-tag--slides">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
@@ -138,15 +149,14 @@
                 </span>
               </div>
               <div class="resource-links">
-                <!-- Replace # with actual links when available -->
-                <a href="#" class="btn btn-primary resource-btn" target="_blank" rel="noopener noreferrer">
+                <a href="slides/Intro_to_BP_Debate_Session_1.pdf" class="btn btn-primary resource-btn" target="_blank" rel="noopener noreferrer">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                  View Slides
+                  View Slides (PDF)
                 </a>
-                <button class="btn btn-outline resource-btn" disabled style="opacity: 0.45; cursor: not-allowed;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  Recording Coming Soon
-                </button>
+                <a href="slides/Intro_to_BP_Debate_Session_1.pdf" download="POI_Intro_to_BP_Debate_Session_1.pdf" class="btn btn-outline resource-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download PDF
+                </a>
               </div>
             </div>
 

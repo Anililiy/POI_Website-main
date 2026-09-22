@@ -100,12 +100,22 @@
       </a>
       <nav class="nav" role="navigation" aria-label="Main navigation">
         <a href="index.html" class="active">Home</a>
-        <a href="about.html">Our Story</a>
-        <a href="sessions.html">Sessions</a>
-        <a href="resources.html">Resources</a>
-        <a href="volunteering.html">Volunteer</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-btn" id="pages-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            <span>Pages</span>
+            <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" id="pages-dropdown-menu" role="menu" aria-labelledby="pages-dropdown-btn">
+            <a href="index.html" class="active" role="menuitem">Home</a>
+            <a href="about.html" role="menuitem">Our Story</a>
+            <a href="sessions.html" role="menuitem">Sessions</a>
+            <a href="resources.html" role="menuitem">Resources</a>
+            <a href="volunteering.html" role="menuitem">Volunteer</a>
+            <a href="faq.html" role="menuitem">FAQ</a>
+            <a href="policies.html" role="menuitem">Policies</a>
+            <a href="contact.html" role="menuitem">Contact</a>
+          </div>
+        </div>
         <a href="sessions.html" class="nav-cta">Sign Up</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -119,6 +129,7 @@
       <a href="resources.html">Resources</a>
       <a href="volunteering.html">Volunteer</a>
       <a href="faq.html">FAQ</a>
+      <a href="policies.html">Policies</a>
       <a href="contact.html">Contact</a>
       <a href="sessions.html" class="btn btn-primary" style="margin-top: 1rem;">Sign Up &rarr;</a>
     </nav>
