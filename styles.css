@@ -2564,36 +2564,6 @@ img,
   background: #FFFFFF;
 }
 
-/* Semi-transparent watermark overlay across the viewer */
-.viewer-watermark-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 6;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 2rem;
-  padding: 2rem;
-  overflow: hidden;
-}
-
-.watermark-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotate(-24deg);
-  opacity: 0.11;
-  color: #000000;
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(0.75rem, 1.4vw, 1.1rem);
-  font-weight: 900;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-align: center;
-  user-select: none;
-}
-
 /* Anti-Screenshot Privacy Shield */
 .viewer-privacy-shield {
   position: absolute;
@@ -2660,10 +2630,6 @@ img,
   }
   .viewer-title {
     font-size: 0.95rem;
-  }
-  .viewer-watermark-overlay {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
   }
 }
 
