@@ -333,6 +333,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
     }
+  });
+
   // === 5. SITE-WIDE ASSET & PHOTO PROTECTION ===
   // Disable right-click on photos and protected materials
   document.addEventListener('contextmenu', function (e) {
