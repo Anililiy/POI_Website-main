@@ -2187,7 +2187,9 @@ p {
   border: 1px solid var(--yellow-border);
 }
 
-.resource-tag--recording {
+.resource-tag--recording,
+.resource-tag--guide,
+.resource-tag--handout {
   background: var(--cyan-bg);
   color: var(--heading-color);
   border: 1px solid var(--cyan-border);
