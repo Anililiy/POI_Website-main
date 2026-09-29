@@ -333,5 +333,51 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
     }
+  // === 5. SITE-WIDE ASSET & PHOTO PROTECTION ===
+  // Disable right-click on photos and protected materials
+  document.addEventListener('contextmenu', function (e) {
+    if (
+      e.target.closest('img') ||
+      e.target.closest('.header-logo') ||
+      e.target.closest('.footer-logo') ||
+      e.target.closest('#pw-protected') ||
+      e.target.closest('#resource-viewer-modal')
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Disable dragging photos
+  document.addEventListener('dragstart', function (e) {
+    if (e.target.closest('img')) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Block Print & Save Shortcuts (Cmd/Ctrl + P, Cmd/Ctrl + S, PrintScreen)
+  window.addEventListener('keydown', function (e) {
+    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    const modKey = isMac ? e.metaKey : e.ctrlKey;
+
+    // Block Print
+    if (modKey && (e.key === 'p' || e.key === 'P')) {
+      e.preventDefault();
+      return false;
+    }
+
+    // Block Save page
+    if (modKey && (e.key === 's' || e.key === 'S')) {
+      e.preventDefault();
+      return false;
+    }
+
+    // Clear clipboard on PrintScreen key (Windows)
+    if (e.key === 'PrintScreen' || e.keyCode === 44) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText('');
+      }
+    }
   });
 });
