@@ -2527,6 +2527,13 @@ img,
   text-overflow: ellipsis;
 }
 
+.viewer-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.viewer-action-btn,
 .viewer-close-btn {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -2540,6 +2547,14 @@ img,
   cursor: pointer;
   transition: all 0.25s var(--ease-fluid);
   flex-shrink: 0;
+  text-decoration: none;
+}
+
+.viewer-action-btn:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: #060818;
+  transform: scale(1.08);
 }
 
 .viewer-close-btn:hover {
@@ -2547,6 +2562,12 @@ img,
   border-color: var(--yellow);
   color: #060818;
   transform: scale(1.08) rotate(90deg);
+}
+
+.resource-viewer-modal.viewer-unrestricted,
+.resource-viewer-modal.viewer-unrestricted * {
+  -webkit-user-select: auto !important;
+  user-select: auto !important;
 }
 
 .viewer-body {

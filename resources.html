@@ -183,7 +183,7 @@
                   View Slides
                 </button>
                 <div class="resource-action-group">
-                  <button type="button" class="btn btn-primary resource-btn open-viewer-btn" data-viewer-src="slides/Session_2_Motion_Work_Through_AI_in_Schools.pdf" data-viewer-title="Session 02: Motion Walkthrough – AI in Schools">
+                  <button type="button" class="btn btn-primary resource-btn open-viewer-btn" data-viewer-src="slides/Session_2_Motion_Work_Through_AI_in_Schools.pdf" data-viewer-title="Session 02: Motion Walkthrough – AI in Schools" data-viewer-unrestricted="true">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                     View Motion Guide
                   </button>
@@ -219,9 +219,17 @@
           <div class="viewer-header-info">
             <h3 class="viewer-title" id="viewer-modal-title">Resource Document</h3>
           </div>
-          <button type="button" class="viewer-close-btn" id="viewer-close-btn" aria-label="Close viewer" title="Close viewer">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
+          <div class="viewer-header-actions">
+            <a href="#" id="viewer-download-link" class="viewer-action-btn" download aria-label="Download Document" title="Download Document" style="display: none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+            <a href="#" id="viewer-external-link" class="viewer-action-btn" target="_blank" rel="noopener noreferrer" aria-label="Open in new tab" title="Open in new tab" style="display: none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <button type="button" class="viewer-close-btn" id="viewer-close-btn" aria-label="Close viewer" title="Close viewer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
         </div>
 
         <div class="viewer-body">
@@ -244,7 +252,7 @@
         </div>
 
         <div class="viewer-footer">
-          <span class="viewer-footer-notice">
+          <span class="viewer-footer-notice" id="viewer-footer-notice">
             &bull; Read-only student material &bull; Copying, downloading, printing, and distribution are strictly prohibited.
           </span>
         </div>
@@ -395,15 +403,49 @@
     const frame = document.getElementById('resource-viewer-frame');
     const modalTitle = document.getElementById('viewer-modal-title');
     const privacyShield = document.getElementById('viewer-privacy-shield');
+    const downloadLink = document.getElementById('viewer-download-link');
+    const externalLink = document.getElementById('viewer-external-link');
+    const footerNotice = document.getElementById('viewer-footer-notice');
     const openButtons = document.querySelectorAll('.open-viewer-btn');
 
     if (!modal || !frame) return;
 
-    function openViewer(src, title) {
+    let isCurrentUnrestricted = false;
+
+    function openViewer(src, title, isUnrestricted) {
+      isCurrentUnrestricted = !!isUnrestricted;
       modalTitle.textContent = title || 'Resource Document';
-      // Suppress native browser PDF toolbar and download options
-      const cleanSrc = src + '#toolbar=0&navpanes=0&scrollbar=1';
-      frame.src = cleanSrc;
+
+      if (isCurrentUnrestricted) {
+        // Motion Guide: completely unrestricted (toolbar enabled, saving and copying allowed)
+        frame.src = src + '#toolbar=1&navpanes=0&scrollbar=1';
+        modal.classList.add('viewer-unrestricted');
+        if (downloadLink) {
+          downloadLink.href = src;
+          downloadLink.style.display = 'inline-flex';
+        }
+        if (externalLink) {
+          externalLink.href = src;
+          externalLink.style.display = 'inline-flex';
+        }
+        if (footerNotice) {
+          footerNotice.textContent = '• Student motion walkthrough & guide • Free to read, print, copy, and download.';
+        }
+      } else {
+        // Protected Slides: toolbar suppressed, no downloads
+        frame.src = src + '#toolbar=0&navpanes=0&scrollbar=1';
+        modal.classList.remove('viewer-unrestricted');
+        if (downloadLink) downloadLink.style.display = 'none';
+        if (externalLink) externalLink.style.display = 'none';
+        if (footerNotice) {
+          footerNotice.textContent = '• Read-only student material • Copying, downloading, printing, and distribution are strictly prohibited.';
+        }
+      }
+
+      if (privacyShield) {
+        privacyShield.style.display = 'none';
+      }
+
       modal.style.display = 'flex';
       modal.offsetHeight; // trigger reflow
       modal.classList.add('active');
@@ -412,6 +454,11 @@
 
     function closeViewer() {
       modal.classList.remove('active');
+      modal.classList.remove('viewer-unrestricted');
+      if (privacyShield) {
+        privacyShield.style.display = 'none';
+      }
+      isCurrentUnrestricted = false;
       setTimeout(() => {
         modal.style.display = 'none';
         frame.src = 'about:blank';
@@ -424,7 +471,8 @@
         e.preventDefault();
         const src = this.getAttribute('data-viewer-src');
         const title = this.getAttribute('data-viewer-title');
-        if (src) openViewer(src, title);
+        const isUnrestricted = this.getAttribute('data-viewer-unrestricted') === 'true';
+        if (src) openViewer(src, title, isUnrestricted);
       });
     });
 
@@ -438,9 +486,9 @@
       }
     });
 
-    // Anti-screenshot & privacy shield on window blur or tab switch
+    // Anti-screenshot & privacy shield (only for protected resources)
     window.addEventListener('blur', function () {
-      if (modal.classList.contains('active') && privacyShield) {
+      if (modal.classList.contains('active') && privacyShield && !isCurrentUnrestricted) {
         privacyShield.style.display = 'flex';
       }
     });
@@ -452,7 +500,7 @@
     });
 
     document.addEventListener('visibilitychange', function () {
-      if (modal.classList.contains('active') && privacyShield) {
+      if (modal.classList.contains('active') && privacyShield && !isCurrentUnrestricted) {
         if (document.hidden) {
           privacyShield.style.display = 'flex';
         } else {
@@ -461,16 +509,25 @@
       }
     });
 
-    // Disable copy, cut, and context menu in protected members area
+    // Disable copy, cut, and context menu in protected members area (exempt unrestricted items)
     const protectedArea = document.getElementById('pw-protected');
     if (protectedArea) {
       ['copy', 'cut', 'contextmenu', 'selectstart'].forEach(evt => {
-        protectedArea.addEventListener(evt, e => e.preventDefault());
+        protectedArea.addEventListener(evt, e => {
+          if (e.target.closest('[data-viewer-unrestricted="true"]') || e.target.closest('.resource-action-group')) {
+            return true;
+          }
+          e.preventDefault();
+        });
       });
     }
 
     ['copy', 'cut', 'contextmenu'].forEach(evt => {
-      modal.addEventListener(evt, e => e.preventDefault());
+      modal.addEventListener(evt, e => {
+        if (!isCurrentUnrestricted) {
+          e.preventDefault();
+        }
+      });
     });
   })();
   </script>

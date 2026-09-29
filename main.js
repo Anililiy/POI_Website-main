@@ -338,6 +338,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // === 5. SITE-WIDE ASSET & PHOTO PROTECTION ===
   // Disable right-click on photos and protected materials
   document.addEventListener('contextmenu', function (e) {
+    // Allow unrestricted elements and open unrestricted modal (Motion Guide)
+    const activeModal = document.getElementById('resource-viewer-modal');
+    if (activeModal && activeModal.classList.contains('viewer-unrestricted')) {
+      return true;
+    }
+    if (e.target.closest('[data-viewer-unrestricted="true"]') || e.target.closest('.resource-action-group')) {
+      return true;
+    }
+
     if (
       e.target.closest('img') ||
       e.target.closest('.header-logo') ||
@@ -360,6 +369,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Block Print & Save Shortcuts (Cmd/Ctrl + P, Cmd/Ctrl + S, PrintScreen)
   window.addEventListener('keydown', function (e) {
+    // Allow printing and saving if unrestricted modal (Motion Guide) is open
+    const activeModal = document.getElementById('resource-viewer-modal');
+    if (activeModal && activeModal.classList.contains('viewer-unrestricted')) {
+      return true;
+    }
+
     const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
     const modKey = isMac ? e.metaKey : e.ctrlKey;
 
