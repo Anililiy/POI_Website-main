@@ -2209,20 +2209,81 @@ p {
 
 .resource-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  flex-direction: column;
+  gap: 0.85rem;
   margin-top: auto;
   padding-top: 1rem;
 }
 
+.resource-action-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.resource-action-group .resource-btn {
+  flex: 1;
+  min-width: 0;
+}
+
 .resource-btn {
   font-size: 0.82rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.4rem;
   gap: 0.5rem;
 }
 
 .resource-btn svg {
   flex-shrink: 0;
+}
+
+/* Small round circle download button */
+.resource-btn-circle {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1.5px solid var(--blue-dark, #1E3A8A);
+  color: var(--blue-dark, #1E3A8A);
+  background: transparent;
+  transition: all 0.3s var(--ease-fluid);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.resource-btn-circle svg {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.resource-btn-circle:hover {
+  background: var(--blue-dark, #1E3A8A);
+  border-color: var(--blue-dark, #1E3A8A);
+  color: #FFFFFF;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 6px 18px rgba(30, 58, 138, 0.25);
+}
+
+.resource-btn-circle:active {
+  transform: translateY(0) scale(0.98);
+}
+
+[data-theme="dark"] .resource-btn-circle {
+  border-color: var(--blue-mid);
+  color: var(--blue-mid);
+}
+
+[data-theme="dark"] .resource-btn-circle:hover {
+  background: var(--blue-mid);
+  border-color: var(--blue-mid);
+  color: #060818;
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.35);
 }
 
 /* Placeholder / Coming Soon Card */
@@ -2317,6 +2378,12 @@ p {
     width: 100%;
     text-align: center;
     justify-content: center;
+  }
+
+  .resource-action-group .resource-btn {
+    width: auto;
+    flex: 1;
+    min-width: 0;
   }
 }
 
