@@ -657,30 +657,60 @@
     });
 
     // Anti-screenshot & privacy shield (only for protected slides)
-    // On desktop, detect switching applications / screenshot windows
-    window.addEventListener('blur', function () {
-      if (!isTouch && modal.classList.contains('active') && privacyShield && !isCurrentUnrestricted) {
-        if (!document.activeElement || !modal.contains(document.activeElement)) {
-          privacyShield.style.display = 'flex';
-        }
-      }
-    });
+    // Works on phones, tablets, and desktops — blocks view when window loses focus
+    let blurTimer = null;
 
-    window.addEventListener('focus', function () {
+    function showShield() {
+      if (modal.classList.contains('active') && privacyShield && !isCurrentUnrestricted) {
+        privacyShield.style.display = 'flex';
+      }
+    }
+
+    function hideShield() {
       if (privacyShield) {
         privacyShield.style.display = 'none';
       }
+      clearTimeout(blurTimer);
+    }
+
+    // Desktop blur: fires immediately (no false triggers from touch)
+    // Mobile blur: debounced 350ms so touch scrolling / tapping slides doesn't trigger it
+    window.addEventListener('blur', function () {
+      if (modal.classList.contains('active') && privacyShield && !isCurrentUnrestricted) {
+        clearTimeout(blurTimer);
+        if (isTouch) {
+          // On touch devices, wait briefly — genuine focus loss persists, scroll taps don't
+          blurTimer = setTimeout(function () {
+            if (!document.hasFocus()) {
+              showShield();
+            }
+          }, 350);
+        } else {
+          showShield();
+        }
+      }
     });
 
-    // On mobile and desktop, visibilitychange fires reliably on tab switch or app background
+    window.addEventListener('focus', hideShield);
+
+    // visibilitychange reliably fires on tab switch and app backgrounding (all platforms)
     document.addEventListener('visibilitychange', function () {
       if (modal.classList.contains('active') && privacyShield && !isCurrentUnrestricted) {
         if (document.hidden) {
-          privacyShield.style.display = 'flex';
+          clearTimeout(blurTimer);
+          showShield();
         } else {
-          privacyShield.style.display = 'none';
+          hideShield();
         }
       }
+    });
+
+    // iOS Safari pagehide/pageshow for multitasking and app switcher
+    window.addEventListener('pagehide', function () {
+      showShield();
+    });
+    window.addEventListener('pageshow', function () {
+      hideShield();
     });
 
     // Tap or click on privacy shield dismisses it if the window is currently visible
@@ -688,7 +718,7 @@
       ['click', 'touchstart'].forEach(evt => {
         privacyShield.addEventListener(evt, function () {
           if (!document.hidden) {
-            privacyShield.style.display = 'none';
+            hideShield();
           }
         }, { passive: true });
       });
