@@ -9,7 +9,8 @@ Whenever presentation slides (PowerPoint/PDF slide decks), branded curriculum, o
   - Disable text copying, text selection (`user-select: none`), right-click context menu, and dragging.
   - Block keyboard print and save shortcuts (`Cmd/Ctrl + P`, `Cmd/Ctrl + S`, `PrintScreen`).
   - Modal footer clearly notes read-only student material.
-  - No watermarks (keep viewer clean per user preference).
+  - Watermark overlay active: Display semi-transparent POI confidential student material watermark overlay across presentation slide decks.
+  - Multi-device compatibility: Slides rendered via high-DPI canvas to ensure flawless viewing and scrolling across mobile phones, tablets, and desktop computers without false privacy shield triggers.
 
 ## 2. Unrestricted Resources (Informal Notes & Motion Guides)
 Whenever informal notes, motion walkthroughs, reading guides, or student study handouts are added:

@@ -218,8 +218,19 @@
         <div class="viewer-header">
           <div class="viewer-header-info">
             <h3 class="viewer-title" id="viewer-modal-title">Resource Document</h3>
+            <span class="viewer-slide-num" id="viewer-page-badge" style="display: none;"></span>
           </div>
           <div class="viewer-header-actions">
+            <!-- Zoom controls for comfortable reading across all screen sizes -->
+            <div class="viewer-zoom-controls" id="viewer-zoom-controls" style="display: none;">
+              <button type="button" class="viewer-action-btn" id="viewer-zoom-out" aria-label="Zoom Out" title="Zoom Out">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </button>
+              <span class="viewer-zoom-level" id="viewer-zoom-level">100%</span>
+              <button type="button" class="viewer-action-btn" id="viewer-zoom-in" aria-label="Zoom In" title="Zoom In">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </button>
+            </div>
             <a href="#" id="viewer-download-link" class="viewer-action-btn" download aria-label="Download Document" title="Download Document" style="display: none;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </a>
@@ -232,23 +243,36 @@
           </div>
         </div>
 
-        <div class="viewer-body">
+        <div class="viewer-body" id="viewer-body">
+          <!-- Watermark Overlay Grid to protect PowerPoint slides against photography and screenshots -->
+          <div class="viewer-watermark-overlay" id="viewer-watermark-overlay" aria-hidden="true" style="display: none;">
+            <div class="watermark-item">POI UK &bull; CONFIDENTIAL STUDENT MATERIAL &bull; DO NOT DISTRIBUTE</div>
+            <div class="watermark-item">POI UK &bull; CONFIDENTIAL STUDENT MATERIAL &bull; DO NOT DISTRIBUTE</div>
+            <div class="watermark-item">POI UK &bull; CONFIDENTIAL STUDENT MATERIAL &bull; DO NOT DISTRIBUTE</div>
+            <div class="watermark-item">POI UK &bull; CONFIDENTIAL STUDENT MATERIAL &bull; DO NOT DISTRIBUTE</div>
+            <div class="watermark-item">POI UK &bull; CONFIDENTIAL STUDENT MATERIAL &bull; DO NOT DISTRIBUTE</div>
+            <div class="watermark-item">POI UK &bull; CONFIDENTIAL STUDENT MATERIAL &bull; DO NOT DISTRIBUTE</div>
+          </div>
+
           <!-- Anti-Screenshot Privacy Shield: Blurs content when window/tab loses focus -->
           <div class="viewer-privacy-shield" id="viewer-privacy-shield" style="display: none;">
             <div class="privacy-shield-msg">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg>
               <h4>Protected Material</h4>
-              <p>Return focus to this browser tab to continue reading.</p>
+              <p>Tap or return focus to this browser tab to continue reading.</p>
             </div>
           </div>
 
-          <!-- Embedded Reader Frame -->
-          <iframe
-            id="resource-viewer-frame"
-            class="resource-viewer-frame"
-            src=""
-            title="Protected Document Viewer">
-          </iframe>
+          <!-- Loading Spinner -->
+          <div class="viewer-loader" id="viewer-loader" style="display: none;">
+            <div class="viewer-spinner"></div>
+            <span>Loading presentation slides...</span>
+          </div>
+
+          <!-- PDF.js Slide Deck Scrollable Viewer Container -->
+          <div class="viewer-canvas-scroll" id="viewer-canvas-scroll">
+            <div class="viewer-slides-list" id="viewer-slides-list"></div>
+          </div>
         </div>
 
         <div class="viewer-footer">
@@ -284,6 +308,7 @@
     </div>
   </footer>
 
+  <script src="js/pdf.min.js"></script>
   <script src="main.js"></script>
   <script>
   /* ==========================================================================
@@ -400,25 +425,160 @@
     const modal = document.getElementById('resource-viewer-modal');
     const backdrop = document.getElementById('viewer-backdrop');
     const closeBtn = document.getElementById('viewer-close-btn');
-    const frame = document.getElementById('resource-viewer-frame');
     const modalTitle = document.getElementById('viewer-modal-title');
     const privacyShield = document.getElementById('viewer-privacy-shield');
+    const watermarkOverlay = document.getElementById('viewer-watermark-overlay');
     const downloadLink = document.getElementById('viewer-download-link');
     const externalLink = document.getElementById('viewer-external-link');
     const footerNotice = document.getElementById('viewer-footer-notice');
+    const loader = document.getElementById('viewer-loader');
+    const scrollContainer = document.getElementById('viewer-canvas-scroll');
+    const slidesList = document.getElementById('viewer-slides-list');
+    const pageBadge = document.getElementById('viewer-page-badge');
+    const zoomControls = document.getElementById('viewer-zoom-controls');
+    const zoomInBtn = document.getElementById('viewer-zoom-in');
+    const zoomOutBtn = document.getElementById('viewer-zoom-out');
+    const zoomLevelEl = document.getElementById('viewer-zoom-level');
     const openButtons = document.querySelectorAll('.open-viewer-btn');
 
-    if (!modal || !frame) return;
+    if (!modal || !slidesList) return;
+
+    // Configure PDF.js worker
+    if (window.pdfjsLib) {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'js/pdf.worker.min.js';
+    }
 
     let isCurrentUnrestricted = false;
+    let renderGeneration = 0;
+    let currentZoom = 1.0;
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(pointer: coarse)').matches;
+
+    function setZoom(newZoom) {
+      currentZoom = Math.min(Math.max(0.6, Math.round(newZoom * 10) / 10), 2.4);
+      if (zoomLevelEl) zoomLevelEl.textContent = Math.round(currentZoom * 100) + '%';
+      const canvases = slidesList.querySelectorAll('canvas');
+      canvases.forEach(cv => {
+        const bw = parseFloat(cv.dataset.baseWidth);
+        const bh = parseFloat(cv.dataset.baseHeight);
+        if (bw && bh) {
+          cv.style.width = Math.round(bw * currentZoom) + 'px';
+          cv.style.height = Math.round(bh * currentZoom) + 'px';
+        }
+      });
+    }
+
+    if (zoomInBtn) {
+      zoomInBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setZoom(currentZoom + 0.2);
+      });
+    }
+
+    if (zoomOutBtn) {
+      zoomOutBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setZoom(currentZoom - 0.2);
+      });
+    }
+
+    async function renderSlides(src, isUnrestricted, gen) {
+      if (!window.pdfjsLib) {
+        if (loader) loader.style.display = 'none';
+        slidesList.innerHTML = '<div style="color: #fff; padding: 2rem; text-align: center;">PDF Viewer library loading... Please refresh.</div>';
+        return;
+      }
+
+      try {
+        const loadingTask = window.pdfjsLib.getDocument(src);
+        const pdfDoc = await loadingTask.promise;
+        if (gen !== renderGeneration) return;
+
+        const numPages = pdfDoc.numPages;
+        const isMotionGuide = src.includes('Motion');
+        const unitName = isMotionGuide ? (numPages === 1 ? 'Page' : 'Pages') : (numPages === 1 ? 'Slide' : 'Slides');
+
+        if (pageBadge) {
+          pageBadge.textContent = `${numPages} ${unitName}`;
+          pageBadge.style.display = 'inline-flex';
+        }
+        if (zoomControls) {
+          zoomControls.style.display = 'inline-flex';
+        }
+        if (loader) {
+          loader.style.display = 'none';
+        }
+
+        const containerWidth = scrollContainer.clientWidth || window.innerWidth;
+        const isMobile = window.innerWidth <= 768;
+        const targetWidth = isMobile ? Math.min(containerWidth - 20, 680) : Math.min(containerWidth - 60, 940);
+        const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+
+        for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+          if (gen !== renderGeneration) return;
+
+          const page = await pdfDoc.getPage(pageNum);
+          if (gen !== renderGeneration) return;
+
+          const unscaledViewport = page.getViewport({ scale: 1.0 });
+          const baseScale = targetWidth / unscaledViewport.width;
+          const viewport = page.getViewport({ scale: baseScale * dpr });
+
+          const slideCard = document.createElement('div');
+          slideCard.className = 'viewer-slide-card';
+
+          const slideHeader = document.createElement('div');
+          slideHeader.className = 'viewer-slide-header';
+
+          const slideNum = document.createElement('span');
+          slideNum.className = 'viewer-slide-num';
+          slideNum.textContent = `${isMotionGuide ? 'Page' : 'Slide'} ${pageNum} of ${numPages}`;
+          slideHeader.appendChild(slideNum);
+          slideCard.appendChild(slideHeader);
+
+          const canvasWrap = document.createElement('div');
+          canvasWrap.className = 'viewer-slide-canvas-wrap';
+
+          const canvas = document.createElement('canvas');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          const cssWidth = Math.round(viewport.width / dpr);
+          const cssHeight = Math.round(viewport.height / dpr);
+          canvas.style.width = cssWidth + 'px';
+          canvas.style.height = cssHeight + 'px';
+          canvas.dataset.baseWidth = cssWidth;
+          canvas.dataset.baseHeight = cssHeight;
+
+          canvasWrap.appendChild(canvas);
+          slideCard.appendChild(canvasWrap);
+          slidesList.appendChild(slideCard);
+
+          await page.render({
+            canvasContext: canvas.getContext('2d'),
+            viewport: viewport
+          }).promise;
+        }
+      } catch (err) {
+        if (gen !== renderGeneration) return;
+        if (loader) loader.style.display = 'none';
+        slidesList.innerHTML = `<div style="color: #ff9090; padding: 2rem; text-align: center;">Unable to load document: ${err.message}.</div>`;
+      }
+    }
 
     function openViewer(src, title, isUnrestricted) {
       isCurrentUnrestricted = !!isUnrestricted;
+      const currentGen = ++renderGeneration;
+      currentZoom = 1.0;
+      if (zoomLevelEl) zoomLevelEl.textContent = '100%';
+
       modalTitle.textContent = title || 'Resource Document';
 
+      // Watermark control: Show watermark overlay for PowerPoint slides; hide for Motion Guide
+      if (watermarkOverlay) {
+        watermarkOverlay.style.display = isCurrentUnrestricted ? 'none' : 'grid';
+      }
+
       if (isCurrentUnrestricted) {
-        // Motion Guide: completely unrestricted (toolbar enabled, saving and copying allowed)
-        frame.src = src + '#toolbar=1&navpanes=0&scrollbar=1';
+        // Motion Guide: unrestricted reading, download & external tab links available
         modal.classList.add('viewer-unrestricted');
         if (downloadLink) {
           downloadLink.href = src;
@@ -432,8 +592,7 @@
           footerNotice.textContent = '• Student motion walkthrough & guide • Free to read, print, copy, and download.';
         }
       } else {
-        // Protected Slides: toolbar suppressed, no downloads
-        frame.src = src + '#toolbar=0&navpanes=0&scrollbar=1';
+        // Protected Presentation Slides: read-only, no downloads, watermarked
         modal.classList.remove('viewer-unrestricted');
         if (downloadLink) downloadLink.style.display = 'none';
         if (externalLink) externalLink.style.display = 'none';
@@ -446,13 +605,23 @@
         privacyShield.style.display = 'none';
       }
 
+      slidesList.innerHTML = '';
+      if (pageBadge) pageBadge.style.display = 'none';
+      if (zoomControls) zoomControls.style.display = 'none';
+      if (loader) loader.style.display = 'flex';
+      if (scrollContainer) scrollContainer.scrollTop = 0;
+
       modal.style.display = 'flex';
       modal.offsetHeight; // trigger reflow
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
+
+      // Render document pages to canvas
+      renderSlides(src, isCurrentUnrestricted, currentGen);
     }
 
     function closeViewer() {
+      renderGeneration++; // Cancel pending page renders
       modal.classList.remove('active');
       modal.classList.remove('viewer-unrestricted');
       if (privacyShield) {
@@ -461,7 +630,8 @@
       isCurrentUnrestricted = false;
       setTimeout(() => {
         modal.style.display = 'none';
-        frame.src = 'about:blank';
+        slidesList.innerHTML = '';
+        if (loader) loader.style.display = 'none';
         document.body.style.overflow = '';
       }, 300);
     }
@@ -486,10 +656,13 @@
       }
     });
 
-    // Anti-screenshot & privacy shield (only for protected resources)
+    // Anti-screenshot & privacy shield (only for protected slides)
+    // On desktop, detect switching applications / screenshot windows
     window.addEventListener('blur', function () {
-      if (modal.classList.contains('active') && privacyShield && !isCurrentUnrestricted) {
-        privacyShield.style.display = 'flex';
+      if (!isTouch && modal.classList.contains('active') && privacyShield && !isCurrentUnrestricted) {
+        if (!document.activeElement || !modal.contains(document.activeElement)) {
+          privacyShield.style.display = 'flex';
+        }
       }
     });
 
@@ -499,6 +672,7 @@
       }
     });
 
+    // On mobile and desktop, visibilitychange fires reliably on tab switch or app background
     document.addEventListener('visibilitychange', function () {
       if (modal.classList.contains('active') && privacyShield && !isCurrentUnrestricted) {
         if (document.hidden) {
@@ -508,6 +682,17 @@
         }
       }
     });
+
+    // Tap or click on privacy shield dismisses it if the window is currently visible
+    if (privacyShield) {
+      ['click', 'touchstart'].forEach(evt => {
+        privacyShield.addEventListener(evt, function () {
+          if (!document.hidden) {
+            privacyShield.style.display = 'none';
+          }
+        }, { passive: true });
+      });
+    }
 
     // Disable copy, cut, and context menu in protected members area (exempt unrestricted items)
     const protectedArea = document.getElementById('pw-protected');
@@ -528,6 +713,27 @@
           e.preventDefault();
         }
       });
+    });
+    // Handle orientation change or window resize gracefully on phones, tablets, and desktop
+    let resizeTimer = null;
+    window.addEventListener('resize', function () {
+      if (!modal.classList.contains('active')) return;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const containerWidth = scrollContainer.clientWidth || window.innerWidth;
+        const isMobile = window.innerWidth <= 768;
+        const targetWidth = isMobile ? Math.min(containerWidth - 20, 680) : Math.min(containerWidth - 60, 940);
+        const canvases = slidesList.querySelectorAll('canvas');
+        canvases.forEach(cv => {
+          const ratio = cv.height / cv.width;
+          const newBaseWidth = Math.min(targetWidth, cv.width);
+          const newBaseHeight = Math.round(newBaseWidth * ratio);
+          cv.dataset.baseWidth = newBaseWidth;
+          cv.dataset.baseHeight = newBaseHeight;
+          cv.style.width = Math.round(newBaseWidth * currentZoom) + 'px';
+          cv.style.height = Math.round(newBaseHeight * currentZoom) + 'px';
+        });
+      }, 150);
     });
   })();
   </script>
