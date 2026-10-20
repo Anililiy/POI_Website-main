@@ -109,7 +109,7 @@
             <p>
               All our directors, workshop mentors, debate judges, and session volunteers undergo Enhanced DBS background checks and adhere strictly to our child protection and safeguarding frameworks.
             </p>
-            <a href="mailto:vivian@poi.org.uk" class="card-light-link">Contact Safeguarding Lead (Vivian Okolie) &rarr;</a>
+            <a href="#" id="open-safeguarding-popup" class="card-light-link" role="button" aria-haspopup="dialog" aria-controls="safeguarding-popup">Contact Safeguarding Lead (Vivian Okolie) &rarr;</a>
           </div>
         </div>
       </div>
@@ -250,7 +250,14 @@
               </button>
               <div class="accordion-content">
                 <div class="accordion-body">
-                  <p>Rigorous management of donations, expenditures, bank mandates, accounting transparency, and financial compliance standards.</p>
+                  <p>Establishes robust financial controls to protect the assets of POI UK, guarantee reliable recording of financial transactions, and maintain public trust. Approved by Director Vivian Okolie (FCA, ACMA, CGMA).</p>
+                  <ul style="margin: 0.75rem 0 1.25rem 1.25rem; line-height: 1.6; color: var(--text-color, #4a5568); font-size: 0.95rem;">
+                    <li><strong>Dual Authorization (Four-Eyes Principle):</strong> Electronic transfers or payments exceeding &pound;100 require two independent bank signatories (Treasurer and designated Trustee) agreed by a majority of the board.</li>
+                    <li><strong>Spending Approval Limits:</strong> Up to &pound;50 (authorized Student Project Lead); &pound;50 to &pound;500 (prior written approval from Treasurer); Over &pound;500 (majority vote of the Board of Trustees).</li>
+                    <li><strong>Expense Reimbursements:</strong> Pre-authorized volunteer travel reimbursed upon receipt submission, or mileage allowance at 45p per mile (up to 10,000 miles).</li>
+                    <li><strong>Governance &amp; Anti-Fraud:</strong> Strict conflict of interest rules and mandatory Serious Incident Reporting to the Charity Commission in the event of financial loss or irregularities.</li>
+                  </ul>
+                  <a href="Policies%202026/2nd%20Draft%20-%20Financial%20Control%20Policy.pdf" target="_blank" class="policy-download-link"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>Download PDF</a>
                 </div>
               </div>
             </div>
@@ -502,6 +509,74 @@
       </div>
     </div>
   </footer>
+
+  <!-- Safeguarding Lead contact popup -->
+  <div id="safeguarding-popup" class="sg-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="sg-popup-title" hidden>
+    <div class="sg-popup">
+      <button type="button" class="sg-popup-close" id="sg-popup-close" aria-label="Close">&times;</button>
+      <p class="sg-popup-eyebrow">Designated Safeguarding Lead</p>
+      <h2 id="sg-popup-title" class="sg-popup-name">Vivian Okolie</h2>
+      <p class="sg-popup-text">For any safeguarding questions or to report a concern, please email:</p>
+      <div class="sg-popup-email-row">
+        <span class="sg-popup-email" id="sg-popup-email">vivian@poi.org.uk</span>
+        <button type="button" class="sg-popup-copy" id="sg-popup-copy">Copy</button>
+      </div>
+      <a href="mailto:vivian@poi.org.uk" class="sg-popup-mail" id="sg-popup-mail">Open in email app &rarr;</a>
+      <p class="sg-popup-note">If a child is in immediate danger, call 999.</p>
+    </div>
+  </div>
+
+  <style>
+    .sg-popup-overlay { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 1.25rem; background: rgba(10, 18, 40, 0.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); animation: sgFade 0.2s ease; }
+    .sg-popup-overlay[hidden] { display: none; }
+    .sg-popup { position: relative; width: 100%; max-width: 420px; background: #fff; border-radius: 18px; padding: 2rem 1.75rem 1.5rem; box-shadow: 0 24px 60px rgba(0,0,0,0.25); border-top: 5px solid var(--yellow, #f5c518); text-align: center; animation: sgPop 0.25s cubic-bezier(.2,.9,.3,1.2); }
+    .sg-popup-close { position: absolute; top: 0.6rem; right: 0.8rem; background: none; border: none; font-size: 1.8rem; line-height: 1; cursor: pointer; color: #667; }
+    .sg-popup-close:hover { color: #000; }
+    .sg-popup-eyebrow { margin: 0 0 0.25rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue, #1d3c8f); }
+    .sg-popup-name { margin: 0 0 0.75rem; font-size: 1.5rem; }
+    .sg-popup-text { margin: 0 0 1rem; font-size: 0.95rem; color: #445; }
+    .sg-popup-email-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; background: #f3f5fa; border-radius: 12px; padding: 0.6rem 0.6rem 0.6rem 1rem; margin-bottom: 1rem; }
+    .sg-popup-email { font-weight: 700; font-size: 1.05rem; color: var(--blue, #1d3c8f); user-select: all; word-break: break-all; text-align: left; }
+    .sg-popup-copy { flex-shrink: 0; border: none; border-radius: 8px; padding: 0.5rem 0.9rem; font: inherit; font-weight: 700; font-size: 0.85rem; cursor: pointer; background: var(--blue, #1d3c8f); color: #fff; transition: transform 0.15s, background 0.2s; }
+    .sg-popup-copy:hover { transform: translateY(-1px); }
+    .sg-popup-copy.copied { background: #1f9d55; }
+    .sg-popup-mail { display: inline-block; font-weight: 700; color: var(--blue, #1d3c8f); text-decoration: underline; }
+    .sg-popup-note { margin: 1rem 0 0; font-size: 0.8rem; color: #778; }
+    @keyframes sgFade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes sgPop { from { opacity: 0; transform: scale(0.92) translateY(10px); } to { opacity: 1; transform: none; } }
+  </style>
+
+  <script>
+    (function () {
+      var overlay = document.getElementById('safeguarding-popup');
+      var openBtn = document.getElementById('open-safeguarding-popup');
+      var closeBtn = document.getElementById('sg-popup-close');
+      var copyBtn = document.getElementById('sg-popup-copy');
+      var email = 'vivian@poi.org.uk';
+      if (!overlay || !openBtn) return;
+
+      function open(e) { e.preventDefault(); overlay.hidden = false; document.body.style.overflow = 'hidden'; closeBtn.focus(); }
+      function close() { overlay.hidden = true; document.body.style.overflow = ''; openBtn.focus(); }
+
+      openBtn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !overlay.hidden) close(); });
+
+      copyBtn.addEventListener('click', function () {
+        function done() { copyBtn.textContent = 'Copied!'; copyBtn.classList.add('copied'); setTimeout(function () { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 2000); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(email).then(done, fallback);
+        } else { fallback(); }
+        function fallback() {
+          var t = document.createElement('textarea'); t.value = email; t.style.position = 'fixed'; t.style.opacity = '0';
+          document.body.appendChild(t); t.select();
+          try { document.execCommand('copy'); done(); } catch (err) {}
+          document.body.removeChild(t);
+        }
+      });
+    })();
+  </script>
 
   <script src="main.js"></script>
 </body>
