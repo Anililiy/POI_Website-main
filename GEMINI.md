@@ -22,5 +22,5 @@ Whenever informal notes, motion walkthroughs, reading guides, or student study h
   - Right-click, print (`Cmd/Ctrl + P`), and save (`Cmd/Ctrl + S`) shortcuts are permitted.
   - Modal footer notes that the material is free to read, print, copy, and download.
 
-## 3. Ambiguity Protocol
+## 3. Ambiguity Protocol.
 - **Always Ask If Unsure**: If it is ever unclear whether a newly provided resource constitutes official branded slides (protected) or informal notes/guides (unrestricted), **ALWAYS ASK the user** for clarification before publishing or applying protection settings.
