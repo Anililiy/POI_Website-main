@@ -397,4 +397,27 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
+
+  // === 6. COPY DONATION LINK HANDLER ===
+  const copyBtn = document.getElementById('copy-donate-btn');
+  const copyInput = document.getElementById('share-donate-input');
+  if (copyBtn && copyInput) {
+    copyBtn.addEventListener('click', function () {
+      const textToCopy = copyInput.value || 'https://www.zeffy.com/en-GB/donation-form/your-words-your-way';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          const original = copyBtn.textContent;
+          copyBtn.textContent = 'Copied! ✓';
+          setTimeout(() => { copyBtn.textContent = original; }, 2500);
+        });
+      } else {
+        copyInput.select();
+        document.execCommand('copy');
+        const original = copyBtn.textContent;
+        copyBtn.textContent = 'Copied! ✓';
+        setTimeout(() => { copyBtn.textContent = original; }, 2500);
+      }
+    });
+  }
 });
+
