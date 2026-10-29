@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2.2" />
+  <link rel="stylesheet" href="styles.css?v=2.3" />
   <link rel="icon" href="logo.jpg" type="image/jpeg" />
   <link rel="canonical" href="https://poi.org.uk/donate.html" />
   <!-- Structured Data: Organization & DonateAction -->
@@ -72,8 +72,8 @@
     <!-- Top Support Banner -->
     <div class="top-support-banner" role="region" aria-label="Fundraiser Announcement">
       <div class="top-banner-inner">
-        <span class="top-banner-badge">Fundraiser</span>
-        <span class="top-banner-text">Empower young voices &mdash; support our <strong>&ldquo;Your Words. Your Way.&rdquo;</strong> campaign on Zeffy</span>
+        <span class="top-banner-text">Support our mission: Help keep debate &amp; public speaking 100% free for UK students</span>
+        <span class="top-banner-sep" aria-hidden="true">&bull;</span>
         <a href="https://www.zeffy.com/en-GB/donation-form/your-words-your-way" target="_blank" rel="noopener noreferrer" class="top-banner-cta">Donate on Zeffy &rarr;</a>
       </div>
     </div>
@@ -88,24 +88,25 @@
       </a>
       <nav class="nav" role="navigation" aria-label="Main navigation">
         <a href="index.html">Home</a>
+        <a href="about.html">Our Story</a>
+        <a href="sessions.html">Sessions</a>
+        <a href="resources.html">Resources</a>
         <div class="nav-dropdown">
-          <button type="button" class="nav-dropdown-btn" id="pages-dropdown-btn" aria-label="Menu" title="Menu" aria-expanded="false" aria-haspopup="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+          <button type="button" class="nav-dropdown-btn" id="pages-dropdown-btn" aria-label="More pages" aria-expanded="false" aria-haspopup="true">
+            <span>More</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="nav-dropdown-menu" id="pages-dropdown-menu" role="menu" aria-labelledby="pages-dropdown-btn">
-            <a href="index.html" role="menuitem">Home</a>
-            <a href="about.html" role="menuitem">Our Story</a>
-            <a href="sessions.html" role="menuitem">Sessions</a>
-            <a href="resources.html" role="menuitem">Resources</a>
             <a href="volunteering.html" role="menuitem">Volunteer</a>
-            <a href="donate.html" class="active nav-menu-donate" role="menuitem">Donate</a>
             <a href="faq.html" role="menuitem">FAQ</a>
             <a href="policies.html" role="menuitem">Policies</a>
             <a href="contact.html" role="menuitem">Contact</a>
           </div>
         </div>
-        <a href="donate.html" class="nav-donate-link active" aria-current="page">Donate</a>
-        <a href="sessions.html" class="nav-cta">Sign Up</a>
+        <div class="nav-actions">
+          <a href="donate.html" class="nav-btn-donate active" aria-current="page">Donate</a>
+          <a href="sessions.html" class="nav-cta">Sign Up</a>
+        </div>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -117,12 +118,13 @@
       <a href="sessions.html">Sessions</a>
       <a href="resources.html">Resources</a>
       <a href="volunteering.html">Volunteer</a>
-      <a href="donate.html" class="active mobile-nav-donate">Donate</a>
       <a href="faq.html">FAQ</a>
       <a href="policies.html">Policies</a>
       <a href="contact.html">Contact</a>
-      <a href="https://www.zeffy.com/en-GB/donation-form/your-words-your-way" target="_blank" rel="noopener noreferrer" class="btn btn-outline-yellow" style="margin-top: 1rem; width: 100%; text-align: center;">Donate via Zeffy &rarr;</a>
-      <a href="sessions.html" class="btn btn-primary" style="margin-top: 0.5rem; width: 100%; text-align: center;">Sign Up &rarr;</a>
+      <div class="mobile-nav-actions">
+        <a href="https://www.zeffy.com/en-GB/donation-form/your-words-your-way" target="_blank" rel="noopener noreferrer" class="btn btn-outline-yellow">Donate via Zeffy &rarr;</a>
+        <a href="sessions.html" class="btn btn-primary">Sign Up &rarr;</a>
+      </div>
     </nav>
   </header>
 

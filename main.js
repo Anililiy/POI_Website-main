@@ -257,8 +257,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Inject Theme Toggle into Desktop Nav
-  const navContainer = document.querySelector('.nav');
+  // Inject Theme Toggle into Desktop Nav Actions
+  const navContainer = document.querySelector('.nav-actions') || document.querySelector('.nav');
   if (navContainer && !document.querySelector('.theme-toggle-btn')) {
     const toggleBtn = document.createElement('button');
     toggleBtn.type = 'button';
