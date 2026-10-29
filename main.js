@@ -268,7 +268,10 @@ document.addEventListener('DOMContentLoaded', function () {
       : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
     mobileToggleBtn.innerHTML = `<span>Theme</span><span>${mobileIcon} ${initialTheme === 'dark' ? 'Dark' : 'Light'}</span>`;
 
-    mobileToggleBtn.addEventListener('click', () => {
+    mobileToggleBtn.addEventListener('click', (e) => {
+      // Keep the dropdown open: the icon is re-rendered on theme change, which would
+      // otherwise make the outside-click handler think the click was outside the menu.
+      e.stopPropagation();
       const current = document.documentElement.getAttribute('data-theme') || getCurrentTheme();
       const nextTheme = current === 'dark' ? 'light' : 'dark';
       applyTheme(nextTheme, true);
