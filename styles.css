@@ -1773,7 +1773,17 @@ p {
 }
 
 @media (max-width: 960px) {
-  .nav { display: none; }
+  /* Phone/tablet: keep Donate visible in the header; Sign Up stays in the menu */
+  .nav { display: flex; margin-left: auto; }
+  .nav-actions { margin-left: 0; padding-left: 0; border-left: none; }
+  .nav-actions .nav-cta { display: none; }
+  .mobile-nav-actions .btn-outline-yellow { display: none; }
+  .header-inner { gap: 0.6rem; }
+  .nav .nav-btn-donate { padding: 0.5rem 1rem !important; font-size: 0.85rem !important; }
+}
+
+@media (max-width: 400px) {
+  .brand-sub { display: none; }
 }
 
 /* Desktop: menu opens as a dropdown panel under the three-line button */
